@@ -23,13 +23,10 @@ public class DB
 	//------Globals------//
 	private Logger logger = null;
 	
-	//-------Constructors------//
 	public DB ()
 	{
 		initLogger();
 	}
-	
-	//--------PUBLICS-----------//
 	public boolean addToDb()
 	{
 		boolean success = false;
