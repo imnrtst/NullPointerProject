@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
@@ -14,11 +15,11 @@ public class DB
 	//Finals
 	private static final String DB_USER = "sa";
 	private static final String DB_PASS = "";
-	private static final String DB_URL = "jdbc:h2:~/test";
+	private static final String DB_URL = "jdbc:h2:./ProjectDatabase";
 	private static final String DB_DRIVER = "org.h2.Driver";
 	
 	private static final String LOGGER_NAME = "DBLog";
-	private static final String LOGGER_FILE = "DBLog.log";
+	private static final String LOGGER_FILE = "logs/DBLog.log";
 	
 	//------Globals------//
 	private Logger logger = null;
@@ -27,21 +28,46 @@ public class DB
 	public DB ()
 	{
 		initLogger();
+		createDB();
 	}
 	
 	//--------PUBLICS-----------//
+	public boolean createDB()
+	{
+		boolean success = false;
+		String dbName = getDbName();
+		
+		try
+		{
+			Connection conn = openDBConnection();
+			Statement dbStatement = conn.createStatement();
+			int sqlNum = dbStatement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + dbName.toUpperCase());
+			logger.info("DB Created: " + sqlNum);
+		}
+		catch(SQLException e)
+		{
+			//TODO: Handle exceptions if the creation of the 
+			e.printStackTrace();
+		}
+		return success;
+	}
+	
 	public boolean addToDb()
 	{
 		boolean success = false;
 		
+		
+		
 		return success;
 	}
+	
 	public void testDbConnection()
 	{
 		//get the db name being connected to
 		String dbName = getDbName();
 		Connection conn = null;
-        try{
+        try
+        {
             //Choose a driver
             Class.forName(DB_DRIVER);
 
@@ -52,18 +78,27 @@ public class DB
             //No SQL errors received so the DB is accessible
             logger.info("Connected to the " + dbName + " DB successfully...");
             
-         }catch(SQLException se){
+         }
+        catch(SQLException se)
+        {
             //Handle errors for JDBC
             se.printStackTrace();
-         }catch(Exception e){
+        }
+        catch(Exception e)
+        {
             //Handle errors for Class.forName
             e.printStackTrace();
-         }finally{
+        }
+        finally
+        {
             //finally block used to close resources
-            try{
+            try
+            {
                if(conn!=null)
                   conn.close();
-            }catch(SQLException se){
+            }
+            catch(SQLException se)
+            {
                se.printStackTrace();
             }
          }
@@ -73,6 +108,80 @@ public class DB
 	
 	
 	//----------HELPERS--------------//
+	/*
+	 * THis is a method to get the connection to a data base
+	 */
+	public Connection openDBConnection()
+	{
+		//get the db name being connected to
+		String dbName = getDbName();
+		Connection conn = null;
+		try
+		{
+			//Choose a driver
+		    Class.forName(DB_DRIVER);
+
+		    //Connect to DB
+		    logger.info("Connecting to DB --> " + dbName + "...");
+		    conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+		            
+		    //No SQL errors received so the DB is accessible
+		    logger.info("Connected to the " + dbName + " DB successfully...");
+		}
+		
+		catch(SQLException se)
+		{
+			//Handle errors for JDBC
+            se.printStackTrace();
+        }
+		catch(Exception e)
+		{
+            //Handle errors for Class.forName
+            e.printStackTrace();
+        }
+		
+		return conn;
+		//This portion will close the db connection
+		/*
+		finally
+		{
+            //finally block used to close resources
+            try
+            {
+               if(conn!=null)
+               {
+            	   conn.close();
+               }
+            }
+            catch(SQLException se)
+            {
+               se.printStackTrace();
+            }
+        }
+		logger.info("Connection to the " + dbName + " DB closed...");
+		logger.info("DB connection test succesful.");
+		*/
+	}
+	
+	public void closeDBConnection(Connection conn)
+	{
+		String dbName = getDbName();
+		
+		try
+        {
+           if(conn!=null)
+           {
+        	   conn.close();
+           }
+        }
+        catch(SQLException se)
+        {
+           se.printStackTrace();
+        }
+		logger.info("Connection to the " + dbName + " DB closed...");
+		logger.info("DB connection test succesful.");
+	}
+		          
 	/*
 	 * THis method gets the name of the DB being connected to based on the value devclared in the
 	 * static var DB_URL
@@ -93,18 +202,20 @@ public class DB
 		logger = Logger.getLogger(LOGGER_NAME);  
 	    FileHandler fh;  
 
-	    try {  
+	    try 
+	    {  
 	        fh = new FileHandler(LOGGER_FILE);  
 	        logger.addHandler(fh);
 	        SimpleFormatter formatter = new SimpleFormatter();  
-	        fh.setFormatter(formatter);  
-
-	        // the following statement is used to log any messages  
-	        logger.info("My first log");  
-
-	    } catch (SecurityException e) {  
+	        fh.setFormatter(formatter);
+	        logger.info("<---Logging started!--->");
+	    } 
+	    catch (SecurityException e) 
+	    {  
 	        e.printStackTrace();  
-	    } catch (IOException e) {  
+	    } 
+	    catch (IOException e) 
+	    {  
 	        e.printStackTrace();  
 	    }    
 	}
