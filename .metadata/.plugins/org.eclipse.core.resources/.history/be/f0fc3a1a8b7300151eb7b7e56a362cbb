@@ -1,0 +1,17 @@
+import java.sql.DriverManager;
+import java.sql.*;
+
+public class DBTest {
+
+	static final String USER = "sa";
+	static final String PASS = "";
+	static final String DB_URL = "jdbc:h2:~/test";
+	   
+	public static void main(String[] args) throws Exception
+	{
+		DB db = new DB();
+		db.testDbConnection();
+	}
+	
+
+}
