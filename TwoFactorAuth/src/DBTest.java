@@ -6,6 +6,7 @@ public class DBTest {
 	public static void main(String[] args) throws Exception
 	{
 		DB db = new DB();
-		db.testDbConnection();
+		Connection conn = db.openDBConnection();
+		db.closeDBConnection(conn);
 	}
 }
