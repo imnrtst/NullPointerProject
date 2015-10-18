@@ -56,11 +56,11 @@ public class DB
 			Statement dbStatement = conn.createStatement();
 			int sqlNum = dbStatement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + dbName.toUpperCase());
 			logger.info("DB Created: " + sqlNum);
-			success = true;
 		}
 		catch(SQLException e)
 		{
-			logger.info("Error creating the database: \n" + e.getLocalizedMessage());
+			//TODO: Handle exceptions if the creation of the 
+			e.printStackTrace();
 		}
 		return success;
 	}
@@ -81,10 +81,10 @@ public class DB
 			Statement dbStatement = conn.createStatement();
 			int sqlNum = dbStatement.executeUpdate(TABLE_SQL);
 			logger.info("DB Table created. SQL execution returned code:" + sqlNum);
-			success = true;
 		} 
 		catch (SQLException e) 
 		{
+			// TODO Add appropriate logic incase it fails
 			logger.info("Error creating the table: \n" + e.getLocalizedMessage());
 		}
 		finally
