@@ -1,14 +1,22 @@
-Oct 16, 2015 12:10:29 AM DB initLogger
+Oct 17, 2015 5:01:41 PM DB initLogger
 INFO: <---Logging started!--->
-Oct 16, 2015 12:10:29 AM DB openDBConnection
+Oct 17, 2015 5:01:41 PM DB openDBConnection
 INFO: Connecting to DB --> ProjectDatabase...
-Oct 16, 2015 12:10:29 AM DB openDBConnection
+Oct 17, 2015 5:01:42 PM DB openDBConnection
 INFO: Connected to the ProjectDatabase DB successfully...
-Oct 16, 2015 12:10:30 AM DB openDBConnection
-INFO: Connecting to DB --> ProjectDatabase...
-Oct 16, 2015 12:10:30 AM DB openDBConnection
-INFO: Connected to the ProjectDatabase DB successfully...
-Oct 16, 2015 12:10:30 AM DB closeDBConnection
+Oct 17, 2015 5:01:42 PM DB createTable
+INFO: Error creating the table: 
+Table "USERS" already exists; SQL statement:
+CREATE TABLE USERS  (ID int NOT NULL AUTO_INCREMENT,  email VARCHAR(50),  ccnum VARCHAR(16),  ccreg BOOLEAN,  PRIMARY KEY ( id )) [42101-190]
+Oct 17, 2015 5:01:42 PM DB closeDBConnection
 INFO: Connection to the ProjectDatabase DB closed...
-Oct 16, 2015 12:10:30 AM DB closeDBConnection
+Oct 17, 2015 5:01:42 PM DB closeDBConnection
+INFO: DB connection test succesful.
+Oct 17, 2015 5:01:42 PM DB openDBConnection
+INFO: Connecting to DB --> ProjectDatabase...
+Oct 17, 2015 5:01:42 PM DB openDBConnection
+INFO: Connected to the ProjectDatabase DB successfully...
+Oct 17, 2015 5:01:42 PM DB closeDBConnection
+INFO: Connection to the ProjectDatabase DB closed...
+Oct 17, 2015 5:01:42 PM DB closeDBConnection
 INFO: DB connection test succesful.
