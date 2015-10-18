@@ -1,22 +1,59 @@
-Oct 17, 2015 5:01:41 PM DB initLogger
+Oct 18, 2015 12:50:18 AM DB initLogger
 INFO: <---Logging started!--->
-Oct 17, 2015 5:01:41 PM DB openDBConnection
-INFO: Connecting to DB --> ProjectDatabase...
-Oct 17, 2015 5:01:42 PM DB openDBConnection
-INFO: Connected to the ProjectDatabase DB successfully...
-Oct 17, 2015 5:01:42 PM DB createTable
+Oct 18, 2015 12:50:18 AM DB openDBConnection
+INFO: Connecting to DB --> ProjectDB...
+Oct 18, 2015 12:50:18 AM DB openDBConnection
+INFO: Connected to the ProjectDB DB successfully...
+Oct 18, 2015 12:50:18 AM DB createTable
 INFO: Error creating the table: 
-Table "USERS" already exists; SQL statement:
-CREATE TABLE USERS  (ID int NOT NULL AUTO_INCREMENT,  email VARCHAR(50),  ccnum VARCHAR(16),  ccreg BOOLEAN,  PRIMARY KEY ( id )) [42101-190]
-Oct 17, 2015 5:01:42 PM DB closeDBConnection
-INFO: Connection to the ProjectDatabase DB closed...
-Oct 17, 2015 5:01:42 PM DB closeDBConnection
+Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  PRIMARY KEY ( id )) [42101-190]
+Oct 18, 2015 12:50:18 AM DB closeDBConnection
+INFO: Connection to the ProjectDB DB closed...
+Oct 18, 2015 12:50:18 AM DB closeDBConnection
 INFO: DB connection test succesful.
-Oct 17, 2015 5:01:42 PM DB openDBConnection
-INFO: Connecting to DB --> ProjectDatabase...
-Oct 17, 2015 5:01:42 PM DB openDBConnection
-INFO: Connected to the ProjectDatabase DB successfully...
-Oct 17, 2015 5:01:42 PM DB closeDBConnection
-INFO: Connection to the ProjectDatabase DB closed...
-Oct 17, 2015 5:01:42 PM DB closeDBConnection
+Oct 18, 2015 12:50:18 AM DB openDBConnection
+INFO: Connecting to DB --> ProjectDB...
+Oct 18, 2015 12:50:18 AM DB openDBConnection
+INFO: Connected to the ProjectDB DB successfully...
+Oct 18, 2015 12:50:18 AM DB addToDb
+INFO: DB: User someone@somewhere.com added to the DB.
+Oct 18, 2015 12:50:18 AM DB closeDBConnection
+INFO: Connection to the ProjectDB DB closed...
+Oct 18, 2015 12:50:18 AM DB closeDBConnection
+INFO: DB connection test succesful.
+Oct 18, 2015 12:50:18 AM DB openDBConnection
+INFO: Connecting to DB --> ProjectDB...
+Oct 18, 2015 12:50:18 AM DB openDBConnection
+INFO: Connected to the ProjectDB DB successfully...
+Oct 18, 2015 12:50:18 AM DB getUserData
+INFO: DB: User someone@somewhere.com found. Returning user data.
+Oct 18, 2015 12:50:18 AM DB packageUserData
+INFO: Getting user data from the query results
+Oct 18, 2015 12:50:18 AM DB packageUserData
+INFO: id:2|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:true
+Oct 18, 2015 12:50:18 AM DB packageUserData
+INFO: id:3|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:true
+Oct 18, 2015 12:50:18 AM DB packageUserData
+INFO: id:4|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:true
+Oct 18, 2015 12:50:18 AM DB packageUserData
+INFO: id:5|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:true
+Oct 18, 2015 12:50:18 AM DB packageUserData
+INFO: id:6|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:true
+Oct 18, 2015 12:50:18 AM DB packageUserData
+INFO: id:7|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:true
+Oct 18, 2015 12:50:18 AM DB packageUserData
+INFO: id:8|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:true
+Oct 18, 2015 12:50:18 AM DB packageUserData
+INFO: id:9|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:true
+Oct 18, 2015 12:50:18 AM DB packageUserData
+INFO: id:10|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:true
+Oct 18, 2015 12:50:18 AM DB packageUserData
+INFO: id:11|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:true
+Oct 18, 2015 12:50:18 AM DB packageUserData
+INFO: Done getting user data from the query results
+10 records transcribed
+Oct 18, 2015 12:50:18 AM DB closeDBConnection
+INFO: Connection to the ProjectDB DB closed...
+Oct 18, 2015 12:50:18 AM DB closeDBConnection
 INFO: DB connection test succesful.

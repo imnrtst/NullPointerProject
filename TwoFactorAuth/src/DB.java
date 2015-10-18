@@ -15,8 +15,8 @@ public class DB
 	//------Statics-----//
 	
 	//Finals
-	private static final String DB_NAME = "ProjectDatabase";
-	private static final String TABLE_NAME= "USERS";
+	private static final String DB_NAME = "ProjectDB";
+	private static final String TABLE_NAME= "Userdata";
 	private static final String DB_USER = "sa";
 	private static final String DB_PASS = "";
 	private static final String DB_URL = "jdbc:h2:./" + DB_NAME;
@@ -28,10 +28,10 @@ public class DB
 	//SQL Queries that should NOT be changed
 	private static final String TABLE_SQL = 
 			"CREATE TABLE " + TABLE_NAME + 
-			" (ID INT NOT NULL AUTO_INCREMENT, " +
-			" EMAIL VARCHAR(50), " + 
-			" CCNUM VARCHAR(16), " + 
-			" CCREG BOOLEAN, " + 
+			" (id INT NOT NULL AUTO_INCREMENT, " +
+			" email VARCHAR(50) NOT NULL, " + 
+			" ccnum VARCHAR(16), " + 
+			" ccreg BOOLEAN, " + 
 			" PRIMARY KEY ( id ))";
 	
 	//------Globals------//
@@ -48,9 +48,10 @@ public class DB
 	
 	/*
 	 * Method to create a DB if it does not already exist
-	 * 
-	 * @deprecated: the open connection  instruction will create the DB if not exists
+	 * THis method is deprecated as the connection will create the DB if it does
+	 * not already exist
 	 */
+	@Deprecated
 	public boolean createDB()
 	{
 		boolean success = false;
@@ -100,27 +101,50 @@ public class DB
 		
 		return success;
 	}
-	public boolean addToDb()
+	public boolean addUserData(UserDataObj userData)
 	{
 		boolean success = false;
+		Connection conn = openDBConnection();
+		String query = "INSERT INTO " + TABLE_NAME + " (email, ccnum, ccreg)" +
+						"VALUES ('" + userData.email + "', '" + userData.ccnum + "', " + userData.ccreg + ")";
 		
-		
+		try
+		{
+			Statement dbStatement = conn.createStatement();
+			int sqlNum= dbStatement.executeUpdate(query);
+			logger.info("DB: User " + userData.email + " added to the DB.");
+			success = true;
+		} 
+		catch (SQLException e) 
+		{
+			logger.info("Error adding user " + userData.email + ": \n" + e.getLocalizedMessage());
+		}
+		finally
+		{
+			closeDBConnection(conn);
+		}
 		
 		return success;
 	}
 	
+	/*
+	 * This class takes an email for a user and returns all instances of that user from the DB
+	 * in the form of an array list of UserDataObj
+	 */
 	public ArrayList<UserDataObj> getUserData(String email)
 	{
+		ArrayList<UserDataObj> userData = null;
 		ResultSet rs = null;
 		Connection conn = openDBConnection();
 		String query = 	"SELECT * " +
-						"FROM " + DB_NAME + "." + TABLE_NAME +
-						"WHERE EMAIL = '" + email + "'";
+						"FROM " + TABLE_NAME +
+						" WHERE email = '" + email + "'";
 		try
 		{
 			Statement dbStatement = conn.createStatement();
 			rs = dbStatement.executeQuery(query);
 			logger.info("DB: User " + email + " found. Returning user data.");
+			userData = packageUserData(rs);
 		} 
 		catch (SQLException e) 
 		{
@@ -130,7 +154,7 @@ public class DB
 		{
 			closeDBConnection(conn);
 		}
-		return packageUserData(rs);
+		return userData;
 	}
 	
 	public void testDbConnection()
@@ -180,6 +204,7 @@ public class DB
 	
 	
 	//----------HELPERS--------------//
+	
 	/*
 	 * THis is a method to get the connection to a data base
 	 */
@@ -213,28 +238,11 @@ public class DB
         }
 		
 		return conn;
-		//This portion will close the db connection
-		/*
-		finally
-		{
-            //finally block used to close resources
-            try
-            {
-               if(conn!=null)
-               {
-            	   conn.close();
-               }
-            }
-            catch(SQLException se)
-            {
-               se.printStackTrace();
-            }
-        }
-		logger.info("Connection to the " + dbName + " DB closed...");
-		logger.info("DB connection test succesful.");
-		*/
 	}
 	
+	/*
+	 * This method closses the DB connection and logs it.
+	 */
 	public void closeDBConnection(Connection conn)
 	{
 		String dbName = getDbName();
@@ -257,6 +265,11 @@ public class DB
 	/*
 	 * THis method gets the name of the DB being connected to based on the value devclared in the
 	 * static var DB_URL
+	 */
+	
+	@Deprecated
+	/*
+	 * This method is no longer required as the DM name needed to be set as a static for reuse
 	 */
 	private String getDbName()
 	{
@@ -294,26 +307,34 @@ public class DB
 	private ArrayList<UserDataObj> packageUserData(ResultSet rs)
 	{
 		ArrayList<UserDataObj> allUsersData = new ArrayList<UserDataObj>();
-		UserDataObj userData = new UserDataObj();
+		UserDataObj userData;
 		int recCount = 0;
 
 		logger.info("Getting user data from the query results");
+		
+		
 		try {
 			while(rs.next())
 			{
-				userData.id = rs.getInt("ID");
-				userData.email = rs.getString("EMAIL");
-				userData.ccnum = rs.getString("CCNUM");
-				userData.ccreg = rs.getBoolean("CCREG");
+				userData = new UserDataObj();
+				userData.id = rs.getInt("id");
+				userData.email = rs.getString("email");
+				userData.ccnum = rs.getString("ccnum");
+				userData.ccreg = rs.getBoolean("ccreg");
 				
 				allUsersData.add(userData);
 				recCount++;
 				logger.info(userData.toString());
 			}
+			rs.close();
 		} 
 		catch (SQLException e) 
 		{
 			logger.info("Error getting user data: \n" + e.getLocalizedMessage());
+		}
+		catch (NullPointerException np)
+		{
+			logger.info("Error getting user data: \n" + np.getLocalizedMessage());
 		}
 		logger.info("Done getting user data from the query results\n" + recCount + " records transcribed");
 		return allUsersData;
