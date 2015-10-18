@@ -7,7 +7,7 @@ public class UserDataObj
 	public String ccnum;
 	public boolean ccreg;
 	
-	public UserDataObj()
+	public userDataObj()
 	{
 		initData();
 	}
@@ -18,11 +18,5 @@ public class UserDataObj
 		email = null;
 		ccnum = null;
 		ccreg = false;
-	}
-	
-	@Override
-	public String toString()
-	{	
-		return "id:" + id + "|" + "email:" + email + "|" + "ccnum:" + ccnum + "|" + "ccreg:" + ccreg;
 	}
 }

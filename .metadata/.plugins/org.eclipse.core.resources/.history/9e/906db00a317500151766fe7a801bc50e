@@ -19,10 +19,4 @@ public class UserDataObj
 		ccnum = null;
 		ccreg = false;
 	}
-	
-	@Override
-	public String toString()
-	{	
-		return "id:" + id + "|" + "email:" + email + "|" + "ccnum:" + ccnum + "|" + "ccreg:" + ccreg;
-	}
 }

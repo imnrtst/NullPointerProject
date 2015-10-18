@@ -109,9 +109,9 @@ public class DB
 		return success;
 	}
 	
-	public ArrayList<UserDataObj> getUserData(String email)
+	public UserDataObj getUserData(String email)
 	{
-		ResultSet rs = null;
+		
 		Connection conn = openDBConnection();
 		String query = 	"SELECT * " +
 						"FROM " + DB_NAME + "." + TABLE_NAME +
@@ -119,8 +119,10 @@ public class DB
 		try
 		{
 			Statement dbStatement = conn.createStatement();
-			rs = dbStatement.executeQuery(query);
+			ResultSet rs = dbStatement.executeQuery(query);
 			logger.info("DB: User " + email + " found. Returning user data.");
+			
+			
 		} 
 		catch (SQLException e) 
 		{
@@ -130,7 +132,7 @@ public class DB
 		{
 			closeDBConnection(conn);
 		}
-		return packageUserData(rs);
+		return userData;
 	}
 	
 	public void testDbConnection()
