@@ -13,6 +13,13 @@ public class DB
 	//------Statics-----//
 	
 	//Finals
+	private static final String TABLE_SQL = 
+					"CREATE TABLE USERS " + 
+					" (ID int NOT NULL AUTO_INCREMENT, " +
+					" email VARCHAR(50), " + 
+					" ccnum VARCHAR(16), " + 
+					" ccreg BOOLEAN, " + 
+					" PRIMARY KEY ( id ))";
 	private static final String DB_USER = "sa";
 	private static final String DB_PASS = "";
 	private static final String DB_URL = "jdbc:h2:./ProjectDatabase";
@@ -28,10 +35,16 @@ public class DB
 	public DB ()
 	{
 		initLogger();
-		createDB();
+		createTable();
 	}
 	
 	//--------PUBLICS-----------//
+	
+	/*
+	 * Method to create a DB if it does not already exist
+	 * 
+	 * @deprecated: the open connection  instruction will create the DB if not exists
+	 */
 	public boolean createDB()
 	{
 		boolean success = false;
@@ -43,15 +56,44 @@ public class DB
 			Statement dbStatement = conn.createStatement();
 			int sqlNum = dbStatement.executeUpdate("CREATE DATABASE IF NOT EXISTS " + dbName.toUpperCase());
 			logger.info("DB Created: " + sqlNum);
+			success = true;
 		}
 		catch(SQLException e)
 		{
-			//TODO: Handle exceptions if the creation of the 
-			e.printStackTrace();
+			logger.info("Error creating the database: \n" + e.getLocalizedMessage());
 		}
 		return success;
 	}
 	
+	/*
+	 * A method to create to add a table to the DB
+	 * 
+	 * @note: there should only be one table added but the method has been created such that it will take 
+	 * 		a String as a parm and will create that table
+	 */
+	public boolean createTable()
+	{
+		boolean success = false;
+		Connection conn = openDBConnection();
+		
+		try
+		{
+			Statement dbStatement = conn.createStatement();
+			int sqlNum = dbStatement.executeUpdate(TABLE_SQL);
+			logger.info("DB Table created. SQL execution returned code:" + sqlNum);
+			success = true;
+		} 
+		catch (SQLException e) 
+		{
+			logger.info("Error creating the table: \n" + e.getLocalizedMessage());
+		}
+		finally
+		{
+			closeDBConnection(conn);
+		}
+		
+		return success;
+	}
 	public boolean addToDb()
 	{
 		boolean success = false;
