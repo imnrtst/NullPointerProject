@@ -1,4 +1,4 @@
-
+// Generates the random pin for the user to enter.
 import java.util.Random;
 
 public class pinGenerator 
@@ -7,7 +7,7 @@ public class pinGenerator
 	public int randomGen()
 	{
 		Random r = new Random (System.currentTimeMillis());
-		return r.nextInt(9999);
+		return 1000 + r.nextInt(9999);
 	}
 	
 	
