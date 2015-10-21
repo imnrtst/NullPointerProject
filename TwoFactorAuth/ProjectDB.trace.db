@@ -1,30 +1,15 @@
-2015-10-18 00:26:07 jdbc[3]: exception
+2015-10-21 12:19:21 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
-CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  PRIMARY KEY ( id )) [42101-190]
-2015-10-18 00:26:19 jdbc[3]: exception
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-10-21 12:19:24 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
-CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  PRIMARY KEY ( id )) [42101-190]
-2015-10-18 00:29:15 jdbc[3]: exception
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-10-21 12:21:47 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
-CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  PRIMARY KEY ( id )) [42101-190]
-2015-10-18 00:33:50 jdbc[3]: exception
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-10-21 12:22:55 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
-CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  PRIMARY KEY ( id )) [42101-190]
-2015-10-18 00:38:41 jdbc[3]: exception
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-10-21 12:23:53 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
-CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  PRIMARY KEY ( id )) [42101-190]
-2015-10-18 00:39:28 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
-CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  PRIMARY KEY ( id )) [42101-190]
-2015-10-18 00:41:20 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
-CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  PRIMARY KEY ( id )) [42101-190]
-2015-10-18 00:42:17 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
-CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  PRIMARY KEY ( id )) [42101-190]
-2015-10-18 00:46:38 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
-CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  PRIMARY KEY ( id )) [42101-190]
-2015-10-18 00:50:18 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
-CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  PRIMARY KEY ( id )) [42101-190]
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]

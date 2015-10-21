@@ -1,4 +1,3 @@
-import java.awt.List;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -31,7 +30,8 @@ public class DB
 			" (id INT NOT NULL AUTO_INCREMENT, " +
 			" email VARCHAR(50) NOT NULL, " + 
 			" ccnum VARCHAR(16), " + 
-			" ccreg BOOLEAN, " + 
+			" ccreg BOOLEAN, " +
+			" ccpin VARCHAR(10)," +
 			" PRIMARY KEY ( id ))";
 	
 	//------Globals------//
@@ -41,7 +41,7 @@ public class DB
 	public DB ()
 	{
 		initLogger();
-		createTable();
+		createTable(TABLE_SQL);
 	}
 	
 	//--------PUBLICS-----------//
@@ -75,44 +75,62 @@ public class DB
 	/*
 	 * A method to create to add a table to the DB
 	 * 
-	 * @note: there should only be one table added but the method has been created such that it will take 
-	 * 		a String as a parm and will create that table
+	 * Note: there should only be one table added but the method has been created such that it will take 
+	 * a String (SQL create table statement) as a parm and will create the table
 	 */
-	public boolean createTable()
+	public boolean createTable(String sql)
 	{
 		boolean success = false;
 		Connection conn = openDBConnection();
-		
+		int sqlNum = 0;
 		try
 		{
+			//Create a statement handler for the SQL statement
 			Statement dbStatement = conn.createStatement();
-			int sqlNum = dbStatement.executeUpdate(TABLE_SQL);
+			//Execute SQL statement and store the SQL code returned for debugging purposes
+			sqlNum = dbStatement.executeUpdate(sql);
 			logger.info("DB Table created. SQL execution returned code:" + sqlNum);
 			success = true;
 		} 
 		catch (SQLException e) 
 		{
-			logger.info("Error creating the table: \n" + e.getLocalizedMessage());
+			//Log the error and return code
+			logger.info("Error creating the table (SQL Code: " + sqlNum + "): \n" + e.getLocalizedMessage());
 		}
 		finally
 		{
+			//Always close your connections or face the wrath of code -502!!!
 			closeDBConnection(conn);
 		}
-		
 		return success;
 	}
+	
+	/*
+	 * A method to add a user to the DB. The method takes a UserDataObj as a param and returns a boolean
+	 * regarding success of the operation
+	 */
 	public boolean addUserData(UserDataObj userData)
 	{
 		boolean success = false;
 		Connection conn = openDBConnection();
+		int sqlNum = 0;
+		
+		if(checkCCNum(userData.ccnum))
+		{
+			userData.ccreg = false;
+		}
+		else
+		{
+			userData.ccreg = true;
+		}
+		//SQL update statement to add a user to the default table
 		String query = "INSERT INTO " + TABLE_NAME + " (email, ccnum, ccreg)" +
 						"VALUES ('" + userData.email + "', '" + userData.ccnum + "', " + userData.ccreg + ")";
-		
 		try
 		{
 			Statement dbStatement = conn.createStatement();
-			int sqlNum= dbStatement.executeUpdate(query);
-			logger.info("DB: User " + userData.email + " added to the DB.");
+			sqlNum= dbStatement.executeUpdate(query);
+			logger.info("DB: User " + userData.email + " added to the DB (SQL: " + sqlNum + ")");
 			success = true;
 		} 
 		catch (SQLException e) 
@@ -133,15 +151,18 @@ public class DB
 	 */
 	public ArrayList<UserDataObj> getUserData(String email)
 	{
+		//Var to store returned UserDataObjs
 		ArrayList<UserDataObj> userData = null;
 		ResultSet rs = null;
 		Connection conn = openDBConnection();
+		//SQL query
 		String query = 	"SELECT * " +
 						"FROM " + TABLE_NAME +
 						" WHERE email = '" + email + "'";
 		try
 		{
 			Statement dbStatement = conn.createStatement();
+			//Queries return result sets, so store the reult in a result set.  What a concept!
 			rs = dbStatement.executeQuery(query);
 			logger.info("DB: User " + email + " found. Returning user data.");
 			userData = packageUserData(rs);
@@ -156,6 +177,185 @@ public class DB
 		}
 		return userData;
 	}
+	
+	/*
+	 * A method to check if a ccnum already exists in the DB
+	 */
+	public boolean checkCCNum(String ccnum)
+	{
+		boolean exists = false;
+		int count = 0;
+		ResultSet rs = null;
+		Connection conn = openDBConnection();
+		//SQL query
+		String query = 	" SELECT COUNT (*) as cccount" +
+						" FROM " + TABLE_NAME +
+						" WHERE ccnum = '" + ccnum + "'";
+		try
+		{
+			Statement dbStatement = conn.createStatement();
+			rs = dbStatement.executeQuery(query);
+			rs.next();
+			count = rs.getInt("cccount");
+		} 
+		catch (SQLException se) 
+		{
+			logger.info( se.getLocalizedMessage());
+		}
+		finally
+		{
+			closeDBConnection(conn);
+		}
+		
+		if(count > 0)
+		{
+			logger.info("DB: Credit card " + ccnum + " already registered to a user" );
+			exists = true;
+		}
+		return exists;
+	}
+	
+	/*
+	 * THis is a method to get a connection to a data base.  If the connection is already op
+	 * an error is logged and the connection returned is null
+	 */
+	public Connection openDBConnection()
+	{
+		Connection conn = null;
+		try
+		{
+			//Choose a driver
+		    Class.forName(DB_DRIVER);
+
+		    //Connect to DB
+		    logger.info("Connecting to DB --> " + DB_NAME + "...");
+		    conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
+		            
+		    //No SQL errors received so the DB is accessible
+		    logger.info("Connected to the " + DB_NAME + " DB successfully...");
+		}
+		
+		catch(SQLException se)
+		{
+			//Handle errors for JDBC/SQL
+			logger.info("Error opening DB: \n" + se.getLocalizedMessage());
+        }
+		catch(Exception e)
+		{
+            //Handle all other errors
+			logger.info("Something went VERY wrong when openning a connection to the DB");
+            e.printStackTrace();
+        }
+		return conn;
+	}
+	
+	/*
+	 * This method closes the DB connection and logs it.
+	 */
+	public void closeDBConnection(Connection conn)
+	{	
+		try
+        {
+           if(conn!=null)
+           {
+        	   conn.close();
+           }
+        }
+        catch(SQLException se)
+        {
+        	se.getLocalizedMessage();
+        }
+		logger.info("Connection to the " + DB_NAME + " DB closed...");
+	}
+	
+	
+	//----------HELPERS--------------//
+		          
+	/*
+	 * THis method gets the name of the DB being connected to based on the value devclared in the
+	 * static var DB_URL
+	 */
+	@Deprecated
+	/*
+	 * This method is no longer required as the DM name needed to be set as a static for reuse
+	 */
+	private String getDbName()
+	{
+		String[] splitUrl = DB_URL.split("/");
+		return splitUrl[splitUrl.length -1];
+	}
+	
+	/*
+	 * A method to initialize the logger for this class
+	 * All output should go to the file specified in the LOGGER_FILE var except major errors
+	 * Format for adding to logger file is as follows: logger.info("message")
+	 */
+	private void initLogger()
+	{
+		logger = Logger.getLogger(LOGGER_NAME);  
+	    FileHandler fh;  
+
+	    try 
+	    {  
+	        fh = new FileHandler(LOGGER_FILE);  
+	        logger.addHandler(fh);
+	        SimpleFormatter formatter = new SimpleFormatter();  
+	        fh.setFormatter(formatter);
+	        logger.info("<---Logging started!--->");
+	    } 
+	    catch (SecurityException e) 
+	    {  
+	        e.printStackTrace();  
+	    } 
+	    catch (IOException e) 
+	    {  
+	        e.printStackTrace();  
+	    }    
+	}
+	
+	/*
+	 * A method for packaging the data being returned to the user
+	 * Takes a result set from a SQL query and returns an ArrayList of UserDataObjs
+	 * If result set is empty userData will be null
+	 */
+	private ArrayList<UserDataObj> packageUserData(ResultSet rs)
+	{
+		ArrayList<UserDataObj> allUsersData = new ArrayList<UserDataObj>();
+		UserDataObj userData = null;
+		int recCount = 0;
+
+		logger.info("Getting user data from the query results");
+		
+		
+		try {
+			while(rs.next())
+			{
+				userData = new UserDataObj();
+				userData.id = rs.getInt("id");
+				userData.email = rs.getString("email");
+				userData.ccnum = rs.getString("ccnum");
+				userData.ccreg = rs.getBoolean("ccreg");
+				userData.ccpin = rs.getString("ccpin");
+				
+				allUsersData.add(userData);
+				recCount++;
+				logger.info(userData.toString());
+			}
+			rs.close();
+		} 
+		catch (SQLException e) 
+		{
+			logger.info("Error getting user data: \n" + e.getLocalizedMessage());
+		}
+		catch (NullPointerException np)
+		{
+			logger.info("Error getting user data: \n" + np.getLocalizedMessage());
+		}
+		logger.info("Done getting user data from the query results\n" + recCount + " records transcribed");
+		return allUsersData;
+	}
+	
+	//----------------TEST METHODS----------------//
 	
 	public void testDbConnection()
 	{
@@ -203,140 +403,4 @@ public class DB
 	}
 	
 	
-	//----------HELPERS--------------//
-	
-	/*
-	 * THis is a method to get the connection to a data base
-	 */
-	public Connection openDBConnection()
-	{
-		//get the db name being connected to
-		String dbName = getDbName();
-		Connection conn = null;
-		try
-		{
-			//Choose a driver
-		    Class.forName(DB_DRIVER);
-
-		    //Connect to DB
-		    logger.info("Connecting to DB --> " + dbName + "...");
-		    conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);
-		            
-		    //No SQL errors received so the DB is accessible
-		    logger.info("Connected to the " + dbName + " DB successfully...");
-		}
-		
-		catch(SQLException se)
-		{
-			//Handle errors for JDBC
-            se.printStackTrace();
-        }
-		catch(Exception e)
-		{
-            //Handle errors for Class.forName
-            e.printStackTrace();
-        }
-		
-		return conn;
-	}
-	
-	/*
-	 * This method closses the DB connection and logs it.
-	 */
-	public void closeDBConnection(Connection conn)
-	{
-		String dbName = getDbName();
-		
-		try
-        {
-           if(conn!=null)
-           {
-        	   conn.close();
-           }
-        }
-        catch(SQLException se)
-        {
-           se.printStackTrace();
-        }
-		logger.info("Connection to the " + dbName + " DB closed...");
-		logger.info("DB connection test succesful.");
-	}
-		          
-	/*
-	 * THis method gets the name of the DB being connected to based on the value devclared in the
-	 * static var DB_URL
-	 */
-	
-	@Deprecated
-	/*
-	 * This method is no longer required as the DM name needed to be set as a static for reuse
-	 */
-	private String getDbName()
-	{
-		String[] splitUrl = DB_URL.split("/");
-		return splitUrl[splitUrl.length -1];
-	}
-	
-	/*
-	 * A method to initialize the logger for this class
-	 * All output should go to the file specified in the LOGGER_FILE var
-	 * Format for adding to logger file is as follows: logger.info("message")
-	 */
-	private void initLogger()
-	{
-		logger = Logger.getLogger(LOGGER_NAME);  
-	    FileHandler fh;  
-
-	    try 
-	    {  
-	        fh = new FileHandler(LOGGER_FILE);  
-	        logger.addHandler(fh);
-	        SimpleFormatter formatter = new SimpleFormatter();  
-	        fh.setFormatter(formatter);
-	        logger.info("<---Logging started!--->");
-	    } 
-	    catch (SecurityException e) 
-	    {  
-	        e.printStackTrace();  
-	    } 
-	    catch (IOException e) 
-	    {  
-	        e.printStackTrace();  
-	    }    
-	}
-	private ArrayList<UserDataObj> packageUserData(ResultSet rs)
-	{
-		ArrayList<UserDataObj> allUsersData = new ArrayList<UserDataObj>();
-		UserDataObj userData;
-		int recCount = 0;
-
-		logger.info("Getting user data from the query results");
-		
-		
-		try {
-			while(rs.next())
-			{
-				userData = new UserDataObj();
-				userData.id = rs.getInt("id");
-				userData.email = rs.getString("email");
-				userData.ccnum = rs.getString("ccnum");
-				userData.ccreg = rs.getBoolean("ccreg");
-				
-				allUsersData.add(userData);
-				recCount++;
-				logger.info(userData.toString());
-			}
-			rs.close();
-		} 
-		catch (SQLException e) 
-		{
-			logger.info("Error getting user data: \n" + e.getLocalizedMessage());
-		}
-		catch (NullPointerException np)
-		{
-			logger.info("Error getting user data: \n" + np.getLocalizedMessage());
-		}
-		logger.info("Done getting user data from the query results\n" + recCount + " records transcribed");
-		return allUsersData;
-	}
 }
