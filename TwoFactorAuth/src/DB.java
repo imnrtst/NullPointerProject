@@ -28,7 +28,8 @@ public class DB
 	private static final String TABLE_SQL = 
 			"CREATE TABLE " + TABLE_NAME + 
 			" (id INT NOT NULL AUTO_INCREMENT, " +
-			" email VARCHAR(50) NOT NULL, " + 
+			" email VARCHAR(50) NOT NULL UNIQUE, " + 
+			" password VARCHAR(100) NOT NULL," +
 			" ccnum VARCHAR(16), " + 
 			" ccreg BOOLEAN, " +
 			" ccpin VARCHAR(10)," +
@@ -78,7 +79,7 @@ public class DB
 	 * Note: there should only be one table added but the method has been created such that it will take 
 	 * a String (SQL create table statement) as a parm and will create the table
 	 */
-	public boolean createTable(String sql)
+	private boolean createTable(String sql)
 	{
 		boolean success = false;
 		Connection conn = openDBConnection();
@@ -124,8 +125,8 @@ public class DB
 			userData.ccreg = true;
 		}
 		//SQL update statement to add a user to the default table
-		String query = "INSERT INTO " + TABLE_NAME + " (email, ccnum, ccreg)" +
-						"VALUES ('" + userData.email + "', '" + userData.ccnum + "', " + userData.ccreg + ")";
+		String query = "INSERT INTO " + TABLE_NAME + " (email, password, ccnum, ccreg)" +
+						"VALUES ('" + userData.email + "', '" + userData.password + "', '" + userData.ccnum + "', " + userData.ccreg + ")";
 		try
 		{
 			Statement dbStatement = conn.createStatement();
@@ -176,6 +177,40 @@ public class DB
 			closeDBConnection(conn);
 		}
 		return userData;
+	}
+	
+	/*
+	 * A method to update a user's data
+	 */
+	public boolean updateUserData(String email, UserDataObj userData)
+	{
+		boolean success = false;
+		int sqlNum = 0;
+		Connection conn = openDBConnection();
+		
+		String query = 	" UPDATE " + TABLE_NAME +
+				" SET email = '" + userData.email + "'," +
+				" password = '" + userData.password + "'," +
+				" ccnum = '" + userData.ccnum + "'," +
+				" ccreg = '" + userData.ccreg + "'," +
+				" ccpin = '" + userData.ccpin + "'" +
+				" WHERE email = '" + email + "';";
+		try
+		{
+			Statement dbStatement = conn.createStatement();
+			sqlNum= dbStatement.executeUpdate(query);
+			logger.info("DB: User " + email + " entry updated (SQL: " + sqlNum + ")");
+			success = true;
+		} 
+		catch (SQLException e) 
+		{
+			logger.info("Error updating user " + email + ": \n" + e.getLocalizedMessage());
+		}
+		finally
+		{
+			closeDBConnection(conn);
+		}
+		return success;
 	}
 	
 	/*
@@ -333,6 +368,7 @@ public class DB
 				userData = new UserDataObj();
 				userData.id = rs.getInt("id");
 				userData.email = rs.getString("email");
+				userData.password = rs.getString("password");
 				userData.ccnum = rs.getString("ccnum");
 				userData.ccreg = rs.getBoolean("ccreg");
 				userData.ccpin = rs.getString("ccpin");

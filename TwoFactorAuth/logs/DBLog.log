@@ -1,53 +1,66 @@
-Oct 21, 2015 12:23:52 PM DB initLogger
+Oct 23, 2015 5:17:59 PM DB initLogger
 INFO: <---Logging started!--->
-Oct 21, 2015 12:23:52 PM DB openDBConnection
+Oct 23, 2015 5:17:59 PM DB openDBConnection
 INFO: Connecting to DB --> ProjectDB...
-Oct 21, 2015 12:23:53 PM DB openDBConnection
+Oct 23, 2015 5:17:59 PM DB openDBConnection
 INFO: Connected to the ProjectDB DB successfully...
-Oct 21, 2015 12:23:53 PM DB createTable
+Oct 23, 2015 5:17:59 PM DB createTable
 INFO: Error creating the table (SQL Code: 0): 
 Table "USERDATA" already exists; SQL statement:
-CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-Oct 21, 2015 12:23:53 PM DB closeDBConnection
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+Oct 23, 2015 5:17:59 PM DB closeDBConnection
 INFO: Connection to the ProjectDB DB closed...
-Oct 21, 2015 12:23:53 PM DB openDBConnection
+Oct 23, 2015 5:17:59 PM DB openDBConnection
 INFO: Connecting to DB --> ProjectDB...
-Oct 21, 2015 12:23:53 PM DB openDBConnection
+Oct 23, 2015 5:17:59 PM DB openDBConnection
 INFO: Connected to the ProjectDB DB successfully...
-Oct 21, 2015 12:23:53 PM DB openDBConnection
+Oct 23, 2015 5:17:59 PM DB openDBConnection
 INFO: Connecting to DB --> ProjectDB...
-Oct 21, 2015 12:23:53 PM DB openDBConnection
+Oct 23, 2015 5:17:59 PM DB openDBConnection
 INFO: Connected to the ProjectDB DB successfully...
-Oct 21, 2015 12:23:53 PM DB closeDBConnection
+Oct 23, 2015 5:17:59 PM DB closeDBConnection
 INFO: Connection to the ProjectDB DB closed...
-Oct 21, 2015 12:23:53 PM DB checkCCNum
-INFO: DB: Credit card 1234123412341234 already registered to a user
-Oct 21, 2015 12:23:53 PM DB addUserData
+Oct 23, 2015 5:17:59 PM DB addUserData
 INFO: DB: User someone@somewhere.com added to the DB (SQL: 1)
-Oct 21, 2015 12:23:53 PM DB closeDBConnection
+Oct 23, 2015 5:17:59 PM DB closeDBConnection
 INFO: Connection to the ProjectDB DB closed...
-Oct 21, 2015 12:23:53 PM DB openDBConnection
+Oct 23, 2015 5:17:59 PM DB openDBConnection
 INFO: Connecting to DB --> ProjectDB...
-Oct 21, 2015 12:23:53 PM DB openDBConnection
+Oct 23, 2015 5:17:59 PM DB openDBConnection
 INFO: Connected to the ProjectDB DB successfully...
-Oct 21, 2015 12:23:53 PM DB getUserData
+Oct 23, 2015 5:17:59 PM DB getUserData
 INFO: DB: User someone@somewhere.com found. Returning user data.
-Oct 21, 2015 12:23:53 PM DB packageUserData
+Oct 23, 2015 5:17:59 PM DB packageUserData
 INFO: Getting user data from the query results
-Oct 21, 2015 12:23:53 PM DB packageUserData
-INFO: id:1|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:true|ccpin:null
-Oct 21, 2015 12:23:53 PM DB packageUserData
-INFO: id:2|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:false|ccpin:null
-Oct 21, 2015 12:23:53 PM DB packageUserData
-INFO: id:3|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:false|ccpin:null
-Oct 21, 2015 12:23:53 PM DB packageUserData
-INFO: id:4|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:false|ccpin:null
-Oct 21, 2015 12:23:53 PM DB packageUserData
-INFO: id:5|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:false|ccpin:null
-Oct 21, 2015 12:23:53 PM DB packageUserData
-INFO: id:6|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:false|ccpin:null
-Oct 21, 2015 12:23:53 PM DB packageUserData
+Oct 23, 2015 5:17:59 PM DB packageUserData
+INFO: id:2|email:someone@somewhere.com|password:000000000000000059574a6a4d54497a|ccnum:1234123412341234ccreg:true|ccpin:null
+Oct 23, 2015 5:17:59 PM DB packageUserData
 INFO: Done getting user data from the query results
-6 records transcribed
-Oct 21, 2015 12:23:53 PM DB closeDBConnection
+1 records transcribed
+Oct 23, 2015 5:17:59 PM DB closeDBConnection
+INFO: Connection to the ProjectDB DB closed...
+Oct 23, 2015 5:17:59 PM DB openDBConnection
+INFO: Connecting to DB --> ProjectDB...
+Oct 23, 2015 5:17:59 PM DB openDBConnection
+INFO: Connected to the ProjectDB DB successfully...
+Oct 23, 2015 5:17:59 PM DB updateUserData
+INFO: Error updating user someone@somewhere.com: 
+Unique index or primary key violation: "CONSTRAINT_INDEX_1 ON PUBLIC.USERDATA(EMAIL) VALUES ('someone2@somewhere2.com', 1)"; SQL statement:
+ UPDATE Userdata SET email = 'someone2@somewhere2.com', password = '00000000000000004d7a497859324a68', ccnum = '4321432143214321', ccreg = 'true', ccpin = 'null' WHERE email = 'someone@somewhere.com'; [23505-190]
+Oct 23, 2015 5:17:59 PM DB closeDBConnection
+INFO: Connection to the ProjectDB DB closed...
+Oct 23, 2015 5:17:59 PM DB openDBConnection
+INFO: Connecting to DB --> ProjectDB...
+Oct 23, 2015 5:17:59 PM DB openDBConnection
+INFO: Connected to the ProjectDB DB successfully...
+Oct 23, 2015 5:17:59 PM DB getUserData
+INFO: DB: User someone2@somewhere2.com found. Returning user data.
+Oct 23, 2015 5:17:59 PM DB packageUserData
+INFO: Getting user data from the query results
+Oct 23, 2015 5:17:59 PM DB packageUserData
+INFO: id:1|email:someone2@somewhere2.com|password:00000000000000004d7a497859324a68|ccnum:4321432143214321ccreg:true|ccpin:null
+Oct 23, 2015 5:17:59 PM DB packageUserData
+INFO: Done getting user data from the query results
+1 records transcribed
+Oct 23, 2015 5:17:59 PM DB closeDBConnection
 INFO: Connection to the ProjectDB DB closed...
