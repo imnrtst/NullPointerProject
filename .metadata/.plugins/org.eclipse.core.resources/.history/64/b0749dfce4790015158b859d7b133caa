@@ -1,0 +1,27 @@
+2015-10-23 17:10:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE USERDATA (ID INT NOT NULL AUTO_INCREMENT,  EMAIL VARCHAR(50) DISTINCT[*] NOT NULL,  PASSWORD VARCHAR(100) NOT NULL, CCNUM VARCHAR(16),  CCREG BOOLEAN,  CCPIN VARCHAR(10), PRIMARY KEY ( ID )) "; expected "FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) DISTINCT NOT NULL,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42001-190]
+2015-10-23 17:10:29 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+ SELECT COUNT (*) as cccount FROM Userdata WHERE ccnum = '1234123412341234' [42102-190]
+2015-10-23 17:10:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+INSERT INTO Userdata (email, password, ccnum, ccreg)VALUES ('someone@somewhere.com', '000000000000000059574a6a4d54497a', '1234123412341234', true) [42102-190]
+2015-10-23 17:10:29 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+SELECT * FROM Userdata WHERE email = 'someone@somewhere.com' [42102-190]
+2015-10-23 17:10:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE USERDATA (ID INT NOT NULL AUTO_INCREMENT,  EMAIL VARCHAR(50) DISTINCT[*] NOT NULL,  PASSWORD VARCHAR(100) NOT NULL, CCNUM VARCHAR(16),  CCREG BOOLEAN,  CCPIN VARCHAR(10), PRIMARY KEY ( ID )) "; expected "FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) DISTINCT NOT NULL,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42001-190]
+2015-10-23 17:10:35 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+ SELECT COUNT (*) as cccount FROM Userdata WHERE ccnum = '1234123412341234' [42102-190]
+2015-10-23 17:10:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+INSERT INTO Userdata (email, password, ccnum, ccreg)VALUES ('someone@somewhere.com', '000000000000000059574a6a4d54497a', '1234123412341234', true) [42102-190]
+2015-10-23 17:10:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+SELECT * FROM Userdata WHERE email = 'someone@somewhere.com' [42102-190]
+2015-10-23 17:17:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
