@@ -1,53 +1,18 @@
-Oct 21, 2015 12:23:52 PM DB initLogger
+Oct 31, 2015 5:47:26 PM DB initLogger
 INFO: <---Logging started!--->
-Oct 21, 2015 12:23:52 PM DB openDBConnection
+Oct 31, 2015 5:47:26 PM DB openDBConnection
 INFO: Connecting to DB --> ProjectDB...
-Oct 21, 2015 12:23:53 PM DB openDBConnection
+Oct 31, 2015 5:47:27 PM DB openDBConnection
 INFO: Connected to the ProjectDB DB successfully...
-Oct 21, 2015 12:23:53 PM DB createTable
+Oct 31, 2015 5:47:27 PM DB createTable
 INFO: Error creating the table (SQL Code: 0): 
 Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-Oct 21, 2015 12:23:53 PM DB closeDBConnection
+Oct 31, 2015 5:47:27 PM DB closeDBConnection
 INFO: Connection to the ProjectDB DB closed...
-Oct 21, 2015 12:23:53 PM DB openDBConnection
+Oct 31, 2015 5:48:09 PM DB openDBConnection
 INFO: Connecting to DB --> ProjectDB...
-Oct 21, 2015 12:23:53 PM DB openDBConnection
+Oct 31, 2015 5:48:09 PM DB openDBConnection
 INFO: Connected to the ProjectDB DB successfully...
-Oct 21, 2015 12:23:53 PM DB openDBConnection
-INFO: Connecting to DB --> ProjectDB...
-Oct 21, 2015 12:23:53 PM DB openDBConnection
-INFO: Connected to the ProjectDB DB successfully...
-Oct 21, 2015 12:23:53 PM DB closeDBConnection
-INFO: Connection to the ProjectDB DB closed...
-Oct 21, 2015 12:23:53 PM DB checkCCNum
-INFO: DB: Credit card 1234123412341234 already registered to a user
-Oct 21, 2015 12:23:53 PM DB addUserData
-INFO: DB: User someone@somewhere.com added to the DB (SQL: 1)
-Oct 21, 2015 12:23:53 PM DB closeDBConnection
-INFO: Connection to the ProjectDB DB closed...
-Oct 21, 2015 12:23:53 PM DB openDBConnection
-INFO: Connecting to DB --> ProjectDB...
-Oct 21, 2015 12:23:53 PM DB openDBConnection
-INFO: Connected to the ProjectDB DB successfully...
-Oct 21, 2015 12:23:53 PM DB getUserData
-INFO: DB: User someone@somewhere.com found. Returning user data.
-Oct 21, 2015 12:23:53 PM DB packageUserData
-INFO: Getting user data from the query results
-Oct 21, 2015 12:23:53 PM DB packageUserData
-INFO: id:1|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:true|ccpin:null
-Oct 21, 2015 12:23:53 PM DB packageUserData
-INFO: id:2|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:false|ccpin:null
-Oct 21, 2015 12:23:53 PM DB packageUserData
-INFO: id:3|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:false|ccpin:null
-Oct 21, 2015 12:23:53 PM DB packageUserData
-INFO: id:4|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:false|ccpin:null
-Oct 21, 2015 12:23:53 PM DB packageUserData
-INFO: id:5|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:false|ccpin:null
-Oct 21, 2015 12:23:53 PM DB packageUserData
-INFO: id:6|email:someone@somewhere.com|ccnum:1234123412341234|ccreg:false|ccpin:null
-Oct 21, 2015 12:23:53 PM DB packageUserData
-INFO: Done getting user data from the query results
-6 records transcribed
-Oct 21, 2015 12:23:53 PM DB closeDBConnection
+Oct 31, 2015 5:48:09 PM DB closeDBConnection
 INFO: Connection to the ProjectDB DB closed...

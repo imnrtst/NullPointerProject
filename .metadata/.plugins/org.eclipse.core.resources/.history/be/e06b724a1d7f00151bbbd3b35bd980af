@@ -1,0 +1,58 @@
+import java.util.Scanner;
+import java.io.InputStream;
+
+public class Card
+{
+	public String email;
+	public String cardNum;
+	public String expDate;
+	public String cvn;
+	public int cardPin;
+	
+	//add user to DB
+	/*public void registerCard()
+	{
+		
+	}*/
+	
+	//verify card is in DB
+	public void purchase()
+	{
+		boolean used = false;
+		boolean verified = false;
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Please enter your user email address: ");
+		email = scanner.nextLine();
+		
+		System.out.println("Please enter your credit card number: ");
+		cardNum = scanner.nextLine();
+		
+		System.out.println("Please enter your CC expiration date: ");
+		expDate = scanner.nextLine();
+		
+		System.out.println("Please enter your CC security pin (CVN): ");
+		cvn = scanner.nextLine();
+		
+		used = DB.checkCCNum(cardNum);
+		
+		if(used)
+		{
+			//send out PIN
+			//get user data from email
+			//something = DB.getUserData(email);
+			while(verified != true)
+			{
+				System.out.println("Please enter PIN: ");
+				cardPin = scanner.nextInt();
+				//compare PINs
+				if(cardPin == temp)
+				{
+					verified = true;
+				}
+			}
+		}
+		
+		System.out.println("Purchase has been made.");
+	}
+}
