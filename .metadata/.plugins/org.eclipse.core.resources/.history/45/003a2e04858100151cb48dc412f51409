@@ -9,6 +9,11 @@ public class Card
 	public String cvn;
 	public int cardPin;
 	
+	//add user to DB
+	/*public void registerCard()
+	{
+		
+	}*/
 	
 	//verify card is in DB
 	@SuppressWarnings({ "resource", "unused" })
