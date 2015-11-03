@@ -9,6 +9,7 @@ public class Card
 	public String cvn;
 	public int cardPin;
 	
+	
 	//verify card is in DB
 	@SuppressWarnings({ "resource", "unused" })
 	public void purchase()
@@ -18,8 +19,7 @@ public class Card
 		int pin;
 		
 		DB db = new DB();
-		ArrayList <UserDataObj> list = new ArrayList <UserDataObj>();
-		UserDataObj data = new UserDataObj();
+		ArrayList <UserDataObj> data = new ArrayList <UserDataObj>();
 		pinGenerator code = new pinGenerator();
 		Scanner scanner = new Scanner(System.in);
 		
@@ -39,18 +39,13 @@ public class Card
 		
 		if(used)
 		{
-			//use Tyler's Email function
-			//call it here
-			
-			//Inform user to get pin from their email
-			System.out.println("Please check your email for your PIN.");
-			
 			//get user data from email
-			list = db.getUserData(email);
-			//get first element
-			data = list.get(0);
-			//convert pin from string to int
-			pin = Integer.parseInt(data.ccpin);
+			data = db.getUserData(email);
+			
+			//add PIN to database
+			
+			pin = code.randomGen();
+			//email PIN
 			
 			while(verified != true)
 			{

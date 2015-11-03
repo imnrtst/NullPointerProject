@@ -39,17 +39,9 @@ public class Card
 		
 		if(used)
 		{
-			//use Tyler's Email function
-			//call it here
-			
-			//Inform user to get pin from their email
-			System.out.println("Please check your email for your PIN.");
-			
 			//get user data from email
 			list = db.getUserData(email);
-			//get first element
 			data = list.get(0);
-			//convert pin from string to int
 			pin = Integer.parseInt(data.ccpin);
 			
 			while(verified != true)
