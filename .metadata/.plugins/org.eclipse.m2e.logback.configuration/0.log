@@ -7,3 +7,4 @@
 2015-10-31 17:31:52,613 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is out-of-date. Remote download required.
 2015-10-31 18:01:04,600 [Stop Help Server] INFO  o.e.jetty.server.ServerConnector - Stopped ServerConnector@20a86d6e{HTTP/1.1}{127.0.0.1:0}
 2015-10-31 18:01:04,764 [Stop Help Server] INFO  o.e.j.server.handler.ContextHandler - Stopped o.e.j.s.ServletContextHandler@2d3bf486{/help,null,UNAVAILABLE}
+2015-11-02 18:39:43,747 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is out-of-date. Remote download required.

@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.AddressException;
-
 public class Card
 {
 	public String email;
@@ -11,7 +8,6 @@ public class Card
 	public String expDate;
 	public String cvn;
 	public int cardPin;
-	public int purchase = 1;
 	
 	//verify card is in DB
 	@SuppressWarnings({ "resource", "unused" })
@@ -44,16 +40,7 @@ public class Card
 		if(used)
 		{
 			//use Tyler's Email function
-			ProjectEmail sendEmail = new ProjectEmail();
-			try {
-				sendEmail.generateAndSendEmail(purchase);
-			} catch (AddressException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (MessagingException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			//call it here
 			
 			//Inform user to get pin from their email
 			System.out.println("Please check your email for your PIN.");
