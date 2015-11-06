@@ -1,3 +1,4 @@
+package classes;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -179,6 +180,33 @@ public class DB
 		return userData;
 	}
 	
+	public ArrayList<UserDataObj> getAllUsers()
+	{
+		//Var to store returned UserDataObjs
+		ArrayList<UserDataObj> userData = null;
+		ResultSet rs = null;
+		Connection conn = openDBConnection();
+		//SQL query
+		String query = 	"SELECT * " +
+						"FROM " + TABLE_NAME;
+		try
+		{
+			Statement dbStatement = conn.createStatement();
+			//Queries return result sets, so store the reult in a result set.  What a concept!
+			rs = dbStatement.executeQuery(query);
+			logger.info("DB: Entries found. Returning user data.");
+			userData = packageUserData(rs);
+		} 
+		catch (SQLException e) 
+		{
+			logger.info("Error querying table: \n" + e.getLocalizedMessage());
+		}
+		finally
+		{
+			closeDBConnection(conn);
+		}
+		return userData;
+	}
 	/*
 	 * A method to update a user's data
 	 */

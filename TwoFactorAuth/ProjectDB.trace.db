@@ -1,0 +1,24 @@
+2015-11-06 15:53:12 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-06 15:56:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-06 15:57:59 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-06 16:00:28 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-06 16:01:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Value too long for column "CCNUM VARCHAR(16)": "'111222333444555666' (18)"; SQL statement:
+INSERT INTO Userdata (email, password, ccnum, ccreg)VALUES ('goober2@gmail.com', 'goober2', '111222333444555666', true) [22001-190]
+2015-11-06 16:04:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-06 16:06:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-06 16:07:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
