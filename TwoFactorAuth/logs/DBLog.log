@@ -1,18 +1,62 @@
-Oct 23, 2015 11:03:11 AM DB initLogger
+Nov 05, 2015 9:26:29 PM DB initLogger
 INFO: <---Logging started!--->
-Oct 23, 2015 11:03:11 AM DB openDBConnection
+Nov 05, 2015 9:26:29 PM DB openDBConnection
 INFO: Connecting to DB --> ProjectDB...
-Oct 23, 2015 11:03:12 AM DB openDBConnection
+Nov 05, 2015 9:26:29 PM DB openDBConnection
 INFO: Connected to the ProjectDB DB successfully...
-Oct 23, 2015 11:03:12 AM DB createTable
-INFO: Error creating the table (SQL Code: 0): 
-Table "USERDATA" already exists; SQL statement:
-CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-Oct 23, 2015 11:03:12 AM DB closeDBConnection
+Nov 05, 2015 9:26:29 PM DB createTable
+INFO: DB Table created. SQL execution returned code:0
+Nov 05, 2015 9:26:29 PM DB closeDBConnection
 INFO: Connection to the ProjectDB DB closed...
-Oct 23, 2015 11:03:12 AM DB openDBConnection
+Nov 05, 2015 9:26:29 PM DB openDBConnection
 INFO: Connecting to DB --> ProjectDB...
-Oct 23, 2015 11:03:12 AM DB openDBConnection
+Nov 05, 2015 9:26:29 PM DB openDBConnection
 INFO: Connected to the ProjectDB DB successfully...
-Oct 23, 2015 11:03:27 AM DB closeDBConnection
+Nov 05, 2015 9:26:29 PM DB openDBConnection
+INFO: Connecting to DB --> ProjectDB...
+Nov 05, 2015 9:26:29 PM DB openDBConnection
+INFO: Connected to the ProjectDB DB successfully...
+Nov 05, 2015 9:26:29 PM DB closeDBConnection
+INFO: Connection to the ProjectDB DB closed...
+Nov 05, 2015 9:26:29 PM DB addUserData
+INFO: DB: User someone@somewhere.com added to the DB (SQL: 1)
+Nov 05, 2015 9:26:29 PM DB closeDBConnection
+INFO: Connection to the ProjectDB DB closed...
+Nov 05, 2015 9:26:29 PM DB openDBConnection
+INFO: Connecting to DB --> ProjectDB...
+Nov 05, 2015 9:26:30 PM DB openDBConnection
+INFO: Connected to the ProjectDB DB successfully...
+Nov 05, 2015 9:26:30 PM DB getUserData
+INFO: DB: User someone@somewhere.com found. Returning user data.
+Nov 05, 2015 9:26:30 PM DB packageUserData
+INFO: Getting user data from the query results
+Nov 05, 2015 9:26:30 PM DB packageUserData
+INFO: id:1|email:someone@somewhere.com|password:000000000000000059574a6a4d54497a|ccnum:1234123412341234ccreg:true|ccpin:null
+Nov 05, 2015 9:26:30 PM DB packageUserData
+INFO: Done getting user data from the query results
+1 records transcribed
+Nov 05, 2015 9:26:30 PM DB closeDBConnection
+INFO: Connection to the ProjectDB DB closed...
+Nov 05, 2015 9:26:30 PM DB openDBConnection
+INFO: Connecting to DB --> ProjectDB...
+Nov 05, 2015 9:26:30 PM DB openDBConnection
+INFO: Connected to the ProjectDB DB successfully...
+Nov 05, 2015 9:26:30 PM DB updateUserData
+INFO: DB: User someone@somewhere.com entry updated (SQL: 1)
+Nov 05, 2015 9:26:30 PM DB closeDBConnection
+INFO: Connection to the ProjectDB DB closed...
+Nov 05, 2015 9:26:30 PM DB openDBConnection
+INFO: Connecting to DB --> ProjectDB...
+Nov 05, 2015 9:26:30 PM DB openDBConnection
+INFO: Connected to the ProjectDB DB successfully...
+Nov 05, 2015 9:26:30 PM DB getUserData
+INFO: DB: User someone2@somewhere2.com found. Returning user data.
+Nov 05, 2015 9:26:30 PM DB packageUserData
+INFO: Getting user data from the query results
+Nov 05, 2015 9:26:30 PM DB packageUserData
+INFO: id:1|email:someone2@somewhere2.com|password:00000000000000004d7a497859324a68|ccnum:4321432143214321ccreg:true|ccpin:null
+Nov 05, 2015 9:26:30 PM DB packageUserData
+INFO: Done getting user data from the query results
+1 records transcribed
+Nov 05, 2015 9:26:30 PM DB closeDBConnection
 INFO: Connection to the ProjectDB DB closed...
