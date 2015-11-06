@@ -7,12 +7,9 @@ import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 
-import classes.UserDataObj;
-
 public class UIW {
 
 	protected Shell shell;
-	public UserDataObj userData = null;
 
 	/**
 	 * Launch the application.
@@ -65,11 +62,6 @@ public class UIW {
 		btnAddNewUser.setText("Add New User");
 		
 		Button btnLogin = new Button(shell, SWT.NONE);
-		btnLogin.addSelectionListener(new SelectionAdapter() {
-			@Override
-			public void widgetSelected(SelectionEvent arg0) {
-			}
-		});
 		btnLogin.setBounds(10, 46, 148, 30);
 		btnLogin.setText("Login");
 		
