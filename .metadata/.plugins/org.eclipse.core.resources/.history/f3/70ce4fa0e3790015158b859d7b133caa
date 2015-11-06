@@ -1,0 +1,78 @@
+2015-10-23 16:05:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE USERDATA (ID INT NOT NULL AUTO_INCREMENT,  EMAIL VARCHAR(50) NOT NULL,  PASSWORD VARCHAR(100) NOT_NULL[*] CCNUM VARCHAR(16),  CCREG BOOLEAN,  CCPIN VARCHAR(10), PRIMARY KEY ( ID )) "; expected "FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  password VARCHAR(100) NOT_NULL ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42001-190]
+2015-10-23 16:05:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+ SELECT COUNT (*) as cccount FROM Userdata WHERE ccnum = '1234123412341234' [42102-190]
+2015-10-23 16:05:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+INSERT INTO Userdata (email, password, ccnum, ccreg)VALUES ('someone@somewhere.com', '000000000000000059574a6a4d54497a', '1234123412341234', true) [42102-190]
+2015-10-23 16:05:52 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+SELECT * FROM Userdata WHERE email = 'someone@somewhere.com' [42102-190]
+2015-10-23 16:06:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE USERDATA (ID INT NOT NULL AUTO_INCREMENT,  EMAIL VARCHAR(50) NOT NULL,  PASSWORD VARCHAR(100) NOT_NULL[*] CCNUM VARCHAR(16),  CCREG BOOLEAN,  CCPIN VARCHAR(10), PRIMARY KEY ( ID )) "; expected "FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  password VARCHAR(100) NOT_NULL ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42001-190]
+2015-10-23 16:06:39 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+ SELECT COUNT (*) as cccount FROM Userdata WHERE ccnum = '1234123412341234' [42102-190]
+2015-10-23 16:06:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+INSERT INTO Userdata (email, password, ccnum, ccreg)VALUES ('someone@somewhere.com', '000000000000000059574a6a4d54497a', '1234123412341234', true) [42102-190]
+2015-10-23 16:06:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+SELECT * FROM Userdata WHERE email = 'someone@somewhere.com' [42102-190]
+2015-10-23 16:07:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE USERDATA (ID INT NOT NULL AUTO_INCREMENT,  EMAIL VARCHAR(50) NOT NULL,  PASSWORD VARCHAR(100) NOT_NULL[*], CCNUM VARCHAR(16),  CCREG BOOLEAN,  CCPIN VARCHAR(10), PRIMARY KEY ( ID )) "; expected "FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  password VARCHAR(100) NOT_NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42001-190]
+2015-10-23 16:07:31 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+ SELECT COUNT (*) as cccount FROM Userdata WHERE ccnum = '1234123412341234' [42102-190]
+2015-10-23 16:07:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+INSERT INTO Userdata (email, password, ccnum, ccreg)VALUES ('someone@somewhere.com', '000000000000000059574a6a4d54497a', '1234123412341234', true) [42102-190]
+2015-10-23 16:07:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" not found; SQL statement:
+SELECT * FROM Userdata WHERE email = 'someone@somewhere.com' [42102-190]
+2015-10-23 16:10:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-10-23 16:11:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-10-23 16:16:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-10-23 16:49:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-10-23 16:49:17 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATASET" not found; SQL statement:
+ UPDATE UserdataSET email= 'someone2@somewhere2.com', password= '00000000000000004d7a497859324a68', ccnum= '4321432143214321', ccreg= 'false', ccpin= 'null', WHERE email= 'someone@somewhere.com' [42102-190]
+2015-10-23 16:49:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-10-23 16:49:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement " UPDATE USERDATA SET EMAIL= 'someone2@somewhere2.com', PASSWORD= '00000000000000004d7a497859324a68', CCNUM= '4321432143214321', CCREG= 'false', CCPIN= 'null', WHERE[*] EMAIL= 'someone@somewhere.com' "; expected "identifier"; SQL statement:
+ UPDATE Userdata SET email= 'someone2@somewhere2.com', password= '00000000000000004d7a497859324a68', ccnum= '4321432143214321', ccreg= 'false', ccpin= 'null', WHERE email= 'someone@somewhere.com' [42001-190]
+2015-10-23 16:51:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-10-23 16:51:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement " UPDATE USERDATA SET EMAIL= 'someone2@somewhere2.com', PASSWORD= '00000000000000004d7a497859324a68', CCNUM= '4321432143214321', CCREG= 'false', CCPIN= 'null', WHERE[*] EMAIL= 'someone@somewhere.com'; "; expected "identifier"; SQL statement:
+ UPDATE Userdata SET email= 'someone2@somewhere2.com', password= '00000000000000004d7a497859324a68', ccnum= '4321432143214321', ccreg= 'false', ccpin= 'null', WHERE email= 'someone@somewhere.com'; [42001-190]
+2015-10-23 16:53:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-10-23 16:53:22 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement " UPDATE USERDATA SET EMAIL = 'someone2@somewhere2.com', PASSWORD = '00000000000000004d7a497859324a68', CCNUM = '4321432143214321', CCREG = 'false', CCPIN = 'null', WHERE[*] EMAIL = 'someone@somewhere.com'; "; expected "identifier"; SQL statement:
+ UPDATE Userdata SET email = 'someone2@somewhere2.com', password = '00000000000000004d7a497859324a68', ccnum = '4321432143214321', ccreg = 'false', ccpin = 'null', WHERE email = 'someone@somewhere.com'; [42001-190]
+2015-10-23 16:55:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-10-23 16:56:19 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-10-23 16:56:57 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]

@@ -1,0 +1,31 @@
+
+public class UserDataObj 
+{
+	//Datum
+	public int id;
+	public String email;
+	public String password;
+	public String ccnum;
+	public boolean ccreg;
+	public String ccpin;
+	
+	public UserDataObj()
+	{
+		initData();
+	}
+	
+	private void initData()
+	{
+		id = -1;
+		email = null;
+		ccnum = null;
+		ccreg = false;
+		ccpin = null;
+	}
+	
+	@Override
+	public String toString()
+	{	+ "|" + "ccnum:" + ccnum +
+		return "id:" + id + "|" + "email:" + email  "|" + "password:" + password + "|"+ "ccreg:" + ccreg + "|" + "ccpin:" + ccpin;
+	}
+}
