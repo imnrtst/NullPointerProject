@@ -4,8 +4,10 @@
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="org.eclipse.swt.widgets.Shell"/>
 <fullyQualifiedTypeName name="org.apache.commons.codec.digest.DigestUtils"/>
-<fullyQualifiedTypeName name="database.DB"/>
 <fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="classes.UserDataObj"/>
 <fullyQualifiedTypeName name="hash.PwGen"/>
+<fullyQualifiedTypeName name="email.ProjectEmail"/>
+<fullyQualifiedTypeName name="pin.pinGenerator"/>
+<fullyQualifiedTypeName name="database.DB"/>
 </qualifiedTypeNameHistroy>
