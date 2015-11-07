@@ -1,228 +1,270 @@
-2015-11-06 23:17:53 jdbc[3]: exception
+2015-11-07 14:20:21 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:17:53 jdbc[3]: exception
+2015-11-07 14:20:21 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:20:11 jdbc[3]: exception
+2015-11-07 14:20:24 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:20:11 jdbc[3]: exception
+2015-11-07 14:20:24 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:33:17 jdbc[3]: exception
+2015-11-07 14:20:49 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:33:17 jdbc[3]: exception
+2015-11-07 14:20:49 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:41:34 jdbc[3]: exception
+2015-11-07 14:20:59 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:41:34 jdbc[3]: exception
+2015-11-07 14:20:59 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:41:49 jdbc[3]: exception
+2015-11-07 14:22:35 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:41:49 jdbc[3]: exception
+2015-11-07 14:22:35 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:43:04 jdbc[3]: exception
+2015-11-07 14:22:44 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:43:04 jdbc[3]: exception
+2015-11-07 14:22:44 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:43:29 jdbc[3]: exception
+2015-11-07 14:24:12 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:43:29 jdbc[3]: exception
+2015-11-07 14:24:12 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:43:52 jdbc[3]: exception
+2015-11-07 14:24:40 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:43:52 jdbc[3]: exception
+2015-11-07 14:24:40 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:45:21 jdbc[3]: exception
+2015-11-07 14:41:23 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:45:21 jdbc[3]: exception
+2015-11-07 14:41:23 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:45:38 jdbc[3]: exception
+2015-11-07 14:41:27 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:45:38 jdbc[3]: exception
+2015-11-07 14:41:27 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:46:08 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Value too long for column "CCNUM VARCHAR(16)": "'4eb347795e7a6b8bcd5f642fb3883aa7' (32)"; SQL statement:
- UPDATE Userdata SET email = 'daveprozac@gmail.com', password = 'fbceea62b517e09ae2a5d7ed8fb9dd3d', ccnum = '4eb347795e7a6b8bcd5f642fb3883aa7', ccreg = 'false', ccpin = 'null' WHERE email = 'daveprozac@gmail.com'; [22001-190]
-2015-11-06 23:46:59 jdbc[3]: exception
+2015-11-07 14:42:10 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:46:59 jdbc[3]: exception
+2015-11-07 14:42:10 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:47:12 jdbc[3]: exception
+2015-11-07 14:42:14 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:47:12 jdbc[3]: exception
+2015-11-07 14:42:14 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:47:18 jdbc[3]: exception
+2015-11-07 14:42:34 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:47:18 jdbc[3]: exception
+2015-11-07 14:42:34 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:47:28 jdbc[3]: exception
+2015-11-07 14:42:38 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:47:28 jdbc[3]: exception
+2015-11-07 14:42:38 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:47:36 jdbc[3]: exception
+2015-11-07 15:03:55 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:47:36 jdbc[3]: exception
+2015-11-07 15:03:55 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:48:02 jdbc[3]: exception
+2015-11-07 15:04:12 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:48:02 jdbc[3]: exception
+2015-11-07 15:04:12 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:48:49 jdbc[3]: exception
-org.h2.jdbc.JdbcSQLException: Value too long for column "CCNUM VARCHAR(16)": "'4eb347795e7a6b8bcd5f642fb3883aa7' (32)"; SQL statement:
- UPDATE Userdata SET email = 'daveprozac@gmail.com', password = 'fbceea62b517e09ae2a5d7ed8fb9dd3d', ccnum = '4eb347795e7a6b8bcd5f642fb3883aa7', ccreg = 'false', ccpin = 'null' WHERE email = 'daveprozac@gmail.com'; [22001-190]
-2015-11-06 23:50:12 jdbc[3]: exception
+2015-11-07 15:05:28 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:50:12 jdbc[3]: exception
+2015-11-07 15:05:28 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:50:43 jdbc[3]: exception
+2015-11-07 15:05:45 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:50:43 jdbc[3]: exception
+2015-11-07 15:05:45 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:51:13 jdbc[3]: exception
+2015-11-07 15:06:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:51:13 jdbc[3]: exception
+2015-11-07 15:06:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:51:18 jdbc[3]: exception
+2015-11-07 15:06:59 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:51:18 jdbc[3]: exception
+2015-11-07 15:06:59 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:52:19 jdbc[3]: exception
+2015-11-07 15:13:37 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:52:19 jdbc[3]: exception
+2015-11-07 15:13:37 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:52:21 jdbc[3]: exception
+2015-11-07 15:13:52 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:52:21 jdbc[3]: exception
+2015-11-07 15:13:52 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:52:24 jdbc[3]: exception
+2015-11-07 15:47:30 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:52:24 jdbc[3]: exception
+2015-11-07 15:47:30 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:53:18 jdbc[3]: exception
+2015-11-07 15:47:49 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:53:18 jdbc[3]: exception
+2015-11-07 15:47:49 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:53:22 jdbc[3]: exception
+2015-11-07 15:55:25 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:53:22 jdbc[3]: exception
+2015-11-07 15:55:25 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:53:37 jdbc[3]: exception
+2015-11-07 15:55:38 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-06 23:53:37 jdbc[3]: exception
+2015-11-07 15:55:38 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:02:38 jdbc[3]: exception
+2015-11-07 15:56:29 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:02:38 jdbc[3]: exception
+2015-11-07 15:56:29 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:03:12 jdbc[3]: exception
+2015-11-07 16:00:19 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:03:12 jdbc[3]: exception
+2015-11-07 16:00:19 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:03:28 jdbc[3]: exception
+2015-11-07 16:00:40 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:03:28 jdbc[3]: exception
+2015-11-07 16:00:40 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:04:18 jdbc[3]: exception
+2015-11-07 16:02:29 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:04:18 jdbc[3]: exception
+2015-11-07 16:02:29 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:04:28 jdbc[3]: exception
+2015-11-07 16:02:43 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:04:28 jdbc[3]: exception
+2015-11-07 16:02:43 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:05:09 jdbc[3]: exception
+2015-11-07 16:04:09 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:05:09 jdbc[3]: exception
+2015-11-07 16:04:09 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:07:35 jdbc[3]: exception
+2015-11-07 16:14:46 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:07:35 jdbc[3]: exception
+2015-11-07 16:14:46 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:08:05 jdbc[3]: exception
+2015-11-07 16:14:52 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:08:05 jdbc[3]: exception
+2015-11-07 16:14:52 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:08:12 jdbc[3]: exception
+2015-11-07 16:14:56 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:08:12 jdbc[3]: exception
+2015-11-07 16:14:57 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:09:06 jdbc[3]: exception
+2015-11-07 16:15:00 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:09:06 jdbc[3]: exception
+2015-11-07 16:15:00 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:09:58 jdbc[3]: exception
+2015-11-07 16:15:09 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-2015-11-07 00:09:58 jdbc[3]: exception
+2015-11-07 16:15:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
+CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
+CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:27 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
+CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:34 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
+CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:37 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
+CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
+CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:42 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
+CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
+CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:48 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+2015-11-07 16:15:48 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLException: Table "AUTHDATA" already exists; SQL statement:
 CREATE TABLE Authdata (id INT NOT NULL AUTO_INCREMENT,  purchEmail VARCHAR(50) NOT NULL,  authEmail VARCHAR(50) NOT NULL,  authPin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]

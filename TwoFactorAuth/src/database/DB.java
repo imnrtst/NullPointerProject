@@ -10,7 +10,8 @@ import java.util.logging.FileHandler;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 
-import classes.UserDataObj;
+import dataobj.AuthDataObj;
+import dataobj.UserDataObj;
 
 public class DB 
 {
@@ -163,7 +164,7 @@ public class DB
 		return success;
 	}
 	
-	public boolean addAuthData(String emailPurch, String emailAuth, String pin)
+	public boolean addAuthData(AuthDataObj ado)
 	{
 		boolean success = false;
 		Connection conn = openDBConnection();
@@ -171,7 +172,7 @@ public class DB
 		
 		//SQL update statement to add a user to the default table
 		String query = "INSERT INTO " + AUTH_TABLE_NAME + " (purchEmail, authEmail, authPin)" +
-						"VALUES ('" + emailPurch + "', '" + emailAuth + "', '" + pin + "')";
+						"VALUES ('" + ado.purchEmail + "', '" + ado.authEmail + "', '" + ado.authPin + "')";
 		try
 		{
 			Statement dbStatement = conn.createStatement();
@@ -189,6 +190,92 @@ public class DB
 		}
 		
 		return success;
+	}
+	
+	public boolean delAuthData(int id)
+	{
+		boolean success = false;
+		Connection conn = openDBConnection();
+		int sqlNum = 0;
+		
+		//SQL update statement to add a user to the default table
+		String query = "DELETE FROM " + AUTH_TABLE_NAME + " WHERE id = " + id + ";";
+		try
+		{
+			Statement dbStatement = conn.createStatement();
+			sqlNum= dbStatement.executeUpdate(query);
+			logger.info("DB: Auth entry added to the DB (SQL: " + sqlNum + ")");
+			success = true;
+		} 
+		catch (SQLException e) 
+		{
+			logger.info("Error adding auth entry to the DB");
+		}
+		finally
+		{
+			closeDBConnection(conn);
+		}
+		
+		return success;
+	}
+	public ArrayList<AuthDataObj> getAuthData(AuthDataObj ado)
+	{
+		//Var to store returned UserDataObjs
+		ArrayList<AuthDataObj> authData = null;
+		ResultSet rs = null;
+		Connection conn = openDBConnection();
+		//SQL query
+		String query = 	"SELECT * " +
+						"FROM " + AUTH_TABLE_NAME +
+						" WHERE purchEmail = '" + ado.purchEmail + "'" +
+						" AND authEmail = '" + ado.authEmail + "'" +
+						" AND authPin = '" + ado.authPin + "'" ;
+		try
+		{
+			Statement dbStatement = conn.createStatement();
+			//Queries return result sets, so store the result in a result set.  What a concept!
+			rs = dbStatement.executeQuery(query);
+			logger.info("DB: Entry found. Returning auth data.");
+			authData = packageAuthData(rs);
+		} 
+		catch (SQLException e) 
+		{
+			logger.info("Error during auth query: \n" + e.getLocalizedMessage());
+		}
+		finally
+		{
+			closeDBConnection(conn);
+		}
+		return authData;
+	}
+	
+	public ArrayList<AuthDataObj> getAllAuthData(AuthDataObj ado)
+	{
+		//Var to store returned UserDataObjs
+		ArrayList<AuthDataObj> authData = null;
+		ResultSet rs = null;
+		Connection conn = openDBConnection();
+		//SQL query
+		String query = 	"SELECT * " +
+						"FROM " + AUTH_TABLE_NAME +
+						" WHERE authEmail = '" + ado.authEmail + "'";
+		try
+		{
+			Statement dbStatement = conn.createStatement();
+			//Queries return result sets, so store the result in a result set.  What a concept!
+			rs = dbStatement.executeQuery(query);
+			logger.info("DB: Entry found. Returning auth data.");
+			authData = packageAuthData(rs);
+		} 
+		catch (SQLException e) 
+		{
+			logger.info("Error during auth query: \n" + e.getLocalizedMessage());
+		}
+		finally
+		{
+			closeDBConnection(conn);
+		}
+		return authData;
 	}
 	/*
 	 * This class takes an email for a user and returns all instances of that user from the DB
@@ -214,7 +301,7 @@ public class DB
 		} 
 		catch (SQLException e) 
 		{
-			logger.info("Error creating the table: \n" + e.getLocalizedMessage());
+			logger.info("Error during user query: \n" + e.getLocalizedMessage());
 		}
 		finally
 		{
@@ -223,6 +310,34 @@ public class DB
 		return userData;
 	}
 	
+	public ArrayList<UserDataObj> getUserDataCCnum(String ccnum)
+	{
+		//Var to store returned UserDataObjs
+		ArrayList<UserDataObj> userData = null;
+		ResultSet rs = null;
+		Connection conn = openDBConnection();
+		//SQL query
+		String query = 	"SELECT * " +
+						"FROM " + USER_TABLE_NAME +
+						" WHERE ccnum = '" + ccnum + "' AND ccreg = TRUE";
+		try
+		{
+			Statement dbStatement = conn.createStatement();
+			//Queries return result sets, so store the reult in a result set.  What a concept!
+			rs = dbStatement.executeQuery(query);
+			logger.info("DB: ccnum " + ccnum + " found. Returning user data.");
+			userData = packageUserData(rs);
+		} 
+		catch (SQLException e) 
+		{
+			logger.info("Error during  ccnum query: \n" + e.getLocalizedMessage());
+		}
+		finally
+		{
+			closeDBConnection(conn);
+		}
+		return userData;
+	}
 	public ArrayList<UserDataObj> getAllUsers()
 	{
 		//Var to store returned UserDataObjs
@@ -477,6 +592,41 @@ public class DB
 		}
 		logger.info("Done getting user data from the query results\n" + recCount + " records transcribed");
 		return allUsersData;
+	}
+	
+	private ArrayList<AuthDataObj> packageAuthData(ResultSet rs)
+	{
+		ArrayList<AuthDataObj> allAuthData = new ArrayList<AuthDataObj>();
+		AuthDataObj authData = null;
+		int recCount = 0;
+
+		logger.info("Getting auth data from the query results");
+		
+		try {
+			while(rs.next())
+			{
+				authData = new AuthDataObj();
+				authData.transID = rs.getInt("id");
+				authData.purchEmail = rs.getString("purchEmail");
+				authData.authEmail = rs.getString("authEmail");
+				authData.authPin = rs.getString("authPin");
+				
+				allAuthData.add(authData);
+				recCount++;
+				logger.info(authData.toString());
+			}
+			rs.close();
+		} 
+		catch (SQLException e) 
+		{
+			logger.info("Error getting auth data: \n" + e.getLocalizedMessage());
+		}
+		catch (NullPointerException np)
+		{
+			logger.info("Error getting auth data: \n" + np.getLocalizedMessage());
+		}
+		logger.info("Done getting auth data from the query results\n" + recCount + " records transcribed");
+		return allAuthData;
 	}
 	
 	//----------------TEST METHODS----------------//
