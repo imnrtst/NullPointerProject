@@ -5,3 +5,4 @@
 2015-10-30 10:29:32,059 [Start Help Server] INFO  o.e.jetty.server.ServerConnector - Started ServerConnector@20a86d6e{HTTP/1.1}{127.0.0.1:49904}
 2015-10-30 10:29:32,075 [Start Help Server] INFO  org.eclipse.jetty.server.Server - Started @5130497ms
 2015-10-31 17:31:52,613 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is out-of-date. Remote download required.
+2015-11-06 17:34:38,740 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is not available. Remote download required.
