@@ -21,7 +21,7 @@ import org.eclipse.swt.events.SelectionEvent;
 public class AuthorizePurchase extends Dialog {
 
 	protected Object result;
-	protected Shell shell;
+	protected Shell shlAuthorizePurchase;
 	private Text authCodeText;
 	private Text pendingAuthText;
 	private Text transIdText;
@@ -48,10 +48,10 @@ public class AuthorizePurchase extends Dialog {
 	 */
 	public Object open() {
 		createContents();
-		shell.open();
-		shell.layout();
+		shlAuthorizePurchase.open();
+		shlAuthorizePurchase.layout();
 		Display display = getParent().getDisplay();
-		while (!shell.isDisposed()) {
+		while (!shlAuthorizePurchase.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
 			}
@@ -63,21 +63,21 @@ public class AuthorizePurchase extends Dialog {
 	 * Create contents of the dialog.
 	 */
 	private void createContents() {
-		shell = new Shell(getParent(), getStyle());
-		shell.setSize(369, 309);
-		shell.setText(getText());
+		shlAuthorizePurchase = new Shell(getParent(), getStyle());
+		shlAuthorizePurchase.setSize(369, 309);
+		shlAuthorizePurchase.setText("Authorize Purchase");
 		
-		Label statusLbl = new Label(shell, SWT.NONE);
+		Label statusLbl = new Label(shlAuthorizePurchase, SWT.NONE);
 		statusLbl.setBounds(10, 208, 234, 62);
 		
-		Label lblAutirizationCode = new Label(shell, SWT.NONE);
+		Label lblAutirizationCode = new Label(shlAuthorizePurchase, SWT.NONE);
 		lblAutirizationCode.setBounds(10, 171, 112, 20);
 		lblAutirizationCode.setText("Authorization Code:");
 		
-		authCodeText = new Text(shell, SWT.BORDER);
+		authCodeText = new Text(shlAuthorizePurchase, SWT.BORDER);
 		authCodeText.setBounds(128, 168, 212, 26);
 		
-		Button btnAuthorize = new Button(shell, SWT.NONE);
+		Button btnAuthorize = new Button(shlAuthorizePurchase, SWT.NONE);
 		btnAuthorize.addSelectionListener(new SelectionAdapter() 
 		{
 			@Override
@@ -111,18 +111,18 @@ public class AuthorizePurchase extends Dialog {
 		btnAuthorize.setBounds(250, 216, 90, 30);
 		btnAuthorize.setText("Authorize");
 		
-		Label lblPendingAuthorizations = new Label(shell, SWT.NONE);
+		Label lblPendingAuthorizations = new Label(shlAuthorizePurchase, SWT.NONE);
 		lblPendingAuthorizations.setBounds(10, 10, 162, 15);
 		lblPendingAuthorizations.setText("Pending Authorizations");
 		
-		pendingAuthText = new Text(shell, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.CANCEL | SWT.MULTI);
+		pendingAuthText = new Text(shlAuthorizePurchase, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.CANCEL | SWT.MULTI);
 		pendingAuthText.setBounds(10, 31, 330, 79);
 		
-		Label lblTransactionId = new Label(shell, SWT.NONE);
+		Label lblTransactionId = new Label(shlAuthorizePurchase, SWT.NONE);
 		lblTransactionId.setText("Transaction ID:");
 		lblTransactionId.setBounds(10, 132, 112, 20);
 		
-		transIdText = new Text(shell, SWT.BORDER);
+		transIdText = new Text(shlAuthorizePurchase, SWT.BORDER);
 		transIdText.setBounds(128, 126, 212, 26);
 		
 		
