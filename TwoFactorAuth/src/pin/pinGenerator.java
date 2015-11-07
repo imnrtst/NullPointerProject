@@ -5,7 +5,7 @@ import java.util.Random;
 public class pinGenerator 
 {
 
-	public int randomGen()
+	public static int randomGen()
 	{
 		Random r = new Random (System.currentTimeMillis());
 		return 1000 + r.nextInt(9999);

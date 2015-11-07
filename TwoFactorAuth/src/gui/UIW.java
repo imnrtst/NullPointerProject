@@ -132,10 +132,13 @@ class UIW {
 				if(checkLoginStatus())
 				{
 					//Do stuff
+					UpdateUserInfo uui = new UpdateUserInfo(shell,shell.getStyle());
+					uui.open();
 				}
 				else
 				{
 					//Display error
+					statusText.setText("Status: No user logged in.");
 				}
 			}
 		});

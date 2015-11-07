@@ -34,7 +34,7 @@ public class DBTest {
 		userData.email = "someone2@somewhere2.com";
 		userData.ccnum = "4321432143214321";
 		userData.password = PwGen.get_hash("321cba");
-		db.updateUserData("someone@somewhere.com", userData);
+		db.updateUserData("someone@somewhere.com", userData,"4321432143214321" );
 		
 		userDataList =  db.getUserData("someone2@somewhere2.com");
 		

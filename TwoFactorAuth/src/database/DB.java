@@ -163,6 +163,33 @@ public class DB
 		return success;
 	}
 	
+	public boolean addAuthData(String emailPurch, String emailAuth, String pin)
+	{
+		boolean success = false;
+		Connection conn = openDBConnection();
+		int sqlNum = 0;
+		
+		//SQL update statement to add a user to the default table
+		String query = "INSERT INTO " + AUTH_TABLE_NAME + " (purchEmail, authEmail, authPin)" +
+						"VALUES ('" + emailPurch + "', '" + emailAuth + "', '" + pin + "')";
+		try
+		{
+			Statement dbStatement = conn.createStatement();
+			sqlNum= dbStatement.executeUpdate(query);
+			logger.info("DB: Auth entry added to the DB (SQL: " + sqlNum + ")");
+			success = true;
+		} 
+		catch (SQLException e) 
+		{
+			logger.info("Error adding auth entry to the DB");
+		}
+		finally
+		{
+			closeDBConnection(conn);
+		}
+		
+		return success;
+	}
 	/*
 	 * This class takes an email for a user and returns all instances of that user from the DB
 	 * in the form of an array list of UserDataObj
@@ -226,11 +253,27 @@ public class DB
 	/*
 	 * A method to update a user's data
 	 */
-	public boolean updateUserData(String email, UserDataObj userData)
+	public boolean updateUserData(String email, UserDataObj userData, String oldCCNum)
 	{
 		boolean success = false;
 		int sqlNum = 0;
 		Connection conn = openDBConnection();
+		
+		if(checkCCNum(userData.ccnum))
+		{
+			if(userData.ccnum.equals(oldCCNum) && userData.ccreg)
+			{
+				userData.ccreg = true;
+			}
+			else
+			{
+				userData.ccreg = false;
+			}
+		}
+		else
+		{
+			userData.ccreg = true;
+		}
 		
 		String query = 	" UPDATE " + USER_TABLE_NAME +
 				" SET email = '" + userData.email + "'," +
@@ -239,15 +282,6 @@ public class DB
 				" ccreg = '" + userData.ccreg + "'," +
 				" ccpin = '" + userData.ccpin + "'" +
 				" WHERE email = '" + email + "';";
-		
-		if(checkCCNum(userData.ccnum))
-		{
-			userData.ccreg = false;
-		}
-		else
-		{
-			userData.ccreg = true;
-		}
 		
 		try
 		{
