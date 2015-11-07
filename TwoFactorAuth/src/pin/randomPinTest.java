@@ -1,4 +1,4 @@
-package classes;
+package pin;
 // Tests the output of the random pin
 public class randomPinTest {
 	

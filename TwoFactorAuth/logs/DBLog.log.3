@@ -1,0 +1,39 @@
+Nov 06, 2015 9:37:46 PM database.DB initLogger
+INFO: <---Logging started!--->
+Nov 06, 2015 9:37:46 PM database.DB openDBConnection
+INFO: Connecting to DB --> ProjectDB...
+Nov 06, 2015 9:37:46 PM database.DB openDBConnection
+INFO: Connected to the ProjectDB DB successfully...
+Nov 06, 2015 9:37:46 PM database.DB createTable
+INFO: Error creating the table (SQL Code: 0): 
+Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+Nov 06, 2015 9:37:46 PM database.DB closeDBConnection
+INFO: Connection to the ProjectDB DB closed...
+Nov 06, 2015 9:37:48 PM database.DB openDBConnection
+INFO: Connecting to DB --> ProjectDB...
+Nov 06, 2015 9:37:48 PM database.DB openDBConnection
+INFO: Connected to the ProjectDB DB successfully...
+Nov 06, 2015 9:37:48 PM database.DB getUserData
+INFO: DB: User testUser@asu.edu found. Returning user data.
+Nov 06, 2015 9:37:48 PM database.DB packageUserData
+INFO: Getting user data from the query results
+Nov 06, 2015 9:37:48 PM database.DB packageUserData
+INFO: id:12|email:testUser@asu.edu|password:4b431765f9dc1f013cf88e6789687151|ccnum:1111000011110000ccreg:true|ccpin:null
+Nov 06, 2015 9:37:48 PM database.DB packageUserData
+INFO: Done getting user data from the query results
+1 records transcribed
+Nov 06, 2015 9:37:48 PM database.DB closeDBConnection
+INFO: Connection to the ProjectDB DB closed...
+Nov 06, 2015 9:38:01 PM database.DB initLogger
+INFO: <---Logging started!--->
+Nov 06, 2015 9:38:01 PM database.DB openDBConnection
+INFO: Connecting to DB --> ProjectDB...
+Nov 06, 2015 9:38:01 PM database.DB openDBConnection
+INFO: Connected to the ProjectDB DB successfully...
+Nov 06, 2015 9:38:01 PM database.DB createTable
+INFO: Error creating the table (SQL Code: 0): 
+Table "USERDATA" already exists; SQL statement:
+CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
+Nov 06, 2015 9:38:01 PM database.DB closeDBConnection
+INFO: Connection to the ProjectDB DB closed...

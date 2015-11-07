@@ -6,6 +6,8 @@ import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
 import database.DB;
+import email.ProjectEmail;
+import pin.pinGenerator;
 
 public class Card
 {

@@ -23,7 +23,6 @@ public class Login extends Dialog {
 	protected Shell shlLogin;
 	private Text passwordText;
 	private Text emailText;
-
 	private DB db = new DB();
 	/**
 	 * Create the dialog.
@@ -69,9 +68,11 @@ public class Login extends Dialog {
 		lblPassword.setText("Password:");
 		
 		passwordText = new Text(shlLogin, SWT.BORDER);
+		passwordText.setText("brokenPass");
 		passwordText.setBounds(86, 67, 329, 26);
 		
 		emailText = new Text(shlLogin, SWT.BORDER);
+		emailText.setText("testUser@asu.edu");
 		emailText.setBounds(86, 20, 329, 26);
 		
 		Label lblStatus = new Label(shlLogin, SWT.WRAP | SWT.CENTER);
@@ -83,29 +84,34 @@ public class Login extends Dialog {
 			@Override
 			public void widgetSelected(SelectionEvent arg0) 
 			{
-				
+				List<UserDataObj> userDatum = db.getUserData(emailText.getText());
+				UserDataObj ud = null;
+				//If the user data obj is empty the user does not exist
+				if(!userDatum.isEmpty())
+				{
+					//Check the password before passing the user data object back to UIW
+					ud = userDatum.get(0);
+					
+					if(ud.password.equals(PwGen.get_hash(passwordText.getText())))
+					{
+						lblStatus.setText("SUCCESS: " + ud.email + " logged in");
+						UIW.ud = ud;
+					}
+					else
+					{
+						lblStatus.setText("ERROR: Invalid password");
+						ud = null;
+					}
+				}
+				else
+				{
+					lblStatus.setText("ERROR: Invalid credentials");
+					ud = null;
+				}
 			}
 		});
 		btnLogin.setBounds(325, 109, 90, 30);
 		btnLogin.setText("Login");
 
-	}
-	
-	private boolean verifyUser(String email, String password)
-	{
-		boolean result = false;
-		
-		List<UserDataObj> userDatum = db.getUserData(email);
-		
-		if(userDatum != null)
-		{
-			UserDataObj userData = userDatum.get(0);
-			if(userData.password.equals(PwGen.get_hash(password)))
-			{
-				result = true;
-			}
-		}
-		
-		return result;
 	}
 }

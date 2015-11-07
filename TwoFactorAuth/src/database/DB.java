@@ -18,18 +18,20 @@ public class DB
 	
 	//Finals
 	private static final String DB_NAME = "ProjectDB";
-	private static final String TABLE_NAME= "Userdata";
 	private static final String DB_USER = "sa";
 	private static final String DB_PASS = "";
 	private static final String DB_URL = "jdbc:h2:./" + DB_NAME;
 	private static final String DB_DRIVER = "org.h2.Driver";
 	
+	private static final String USER_TABLE_NAME= "Userdata";
+	private static final String AUTH_TABLE_NAME= "Authdata";
+	
 	private static final String LOGGER_NAME = "DBLog";
 	private static final String LOGGER_FILE = "logs/DBLog.log";
 	
 	//SQL Queries that should NOT be changed
-	private static final String TABLE_SQL = 
-			"CREATE TABLE " + TABLE_NAME + 
+	private static final String USER_TABLE_SQL = 
+			"CREATE TABLE " + USER_TABLE_NAME  + 
 			" (id INT NOT NULL AUTO_INCREMENT, " +
 			" email VARCHAR(50) NOT NULL UNIQUE, " + 
 			" password VARCHAR(100) NOT NULL," +
@@ -38,6 +40,17 @@ public class DB
 			" ccpin VARCHAR(10)," +
 			" PRIMARY KEY ( id ))";
 	
+	private static final String AUTH_TABLE_SQL = 
+			"CREATE TABLE " + AUTH_TABLE_NAME + 
+			" (id INT NOT NULL AUTO_INCREMENT, " +
+			" purchEmail VARCHAR(50) NOT NULL, " + 
+			" authEmail VARCHAR(50) NOT NULL, " + 
+			" authPin VARCHAR(10)," +
+			" PRIMARY KEY ( id ))";
+	
+	
+	
+	
 	//------Globals------//
 	private Logger logger = null;
 	
@@ -45,7 +58,8 @@ public class DB
 	public DB ()
 	{
 		initLogger();
-		createTable(TABLE_SQL);
+		createTable(USER_TABLE_SQL);
+		createTable(AUTH_TABLE_SQL);
 	}
 	
 	//--------PUBLICS-----------//
@@ -128,7 +142,7 @@ public class DB
 			userData.ccreg = true;
 		}
 		//SQL update statement to add a user to the default table
-		String query = "INSERT INTO " + TABLE_NAME + " (email, password, ccnum, ccreg)" +
+		String query = "INSERT INTO " + USER_TABLE_NAME + " (email, password, ccnum, ccreg)" +
 						"VALUES ('" + userData.email + "', '" + userData.password + "', '" + userData.ccnum + "', " + userData.ccreg + ")";
 		try
 		{
@@ -161,7 +175,7 @@ public class DB
 		Connection conn = openDBConnection();
 		//SQL query
 		String query = 	"SELECT * " +
-						"FROM " + TABLE_NAME +
+						"FROM " + USER_TABLE_NAME +
 						" WHERE email = '" + email + "'";
 		try
 		{
@@ -190,7 +204,7 @@ public class DB
 		Connection conn = openDBConnection();
 		//SQL query
 		String query = 	"SELECT * " +
-						"FROM " + TABLE_NAME;
+						"FROM " + USER_TABLE_NAME;
 		try
 		{
 			Statement dbStatement = conn.createStatement();
@@ -218,13 +232,23 @@ public class DB
 		int sqlNum = 0;
 		Connection conn = openDBConnection();
 		
-		String query = 	" UPDATE " + TABLE_NAME +
+		String query = 	" UPDATE " + USER_TABLE_NAME +
 				" SET email = '" + userData.email + "'," +
 				" password = '" + userData.password + "'," +
 				" ccnum = '" + userData.ccnum + "'," +
 				" ccreg = '" + userData.ccreg + "'," +
 				" ccpin = '" + userData.ccpin + "'" +
 				" WHERE email = '" + email + "';";
+		
+		if(checkCCNum(userData.ccnum))
+		{
+			userData.ccreg = false;
+		}
+		else
+		{
+			userData.ccreg = true;
+		}
+		
 		try
 		{
 			Statement dbStatement = conn.createStatement();
@@ -254,7 +278,7 @@ public class DB
 		Connection conn = openDBConnection();
 		//SQL query
 		String query = 	" SELECT COUNT (*) as cccount" +
-						" FROM " + TABLE_NAME +
+						" FROM " + USER_TABLE_NAME +
 						" WHERE ccnum = '" + ccnum + "'";
 		try
 		{

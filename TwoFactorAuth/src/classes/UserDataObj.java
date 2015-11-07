@@ -30,4 +30,16 @@ public class UserDataObj
 	{	
 		return "id:" + id + "|" + "email:" + email + "|" + "password:" + password + "|" + "ccnum:" + ccnum + "ccreg:" + ccreg + "|" + "ccpin:" + ccpin;
 	}
+	
+	public UserDataObj clone()
+	{
+		UserDataObj newUserData = new UserDataObj();
+		newUserData.ccnum = ccnum;
+		newUserData.ccpin = ccpin;
+		newUserData.email = email;
+		newUserData.ccreg = ccreg;
+		newUserData.id = id;
+		newUserData.password = password;
+		return newUserData;
+	}
 }

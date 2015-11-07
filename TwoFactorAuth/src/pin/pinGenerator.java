@@ -1,4 +1,4 @@
-package classes;
+package pin;
 // Generates the random pin for the user to enter.
 import java.util.Random;
 
