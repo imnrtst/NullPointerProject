@@ -6,6 +6,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
 
+import hash.PwGen;
+
 
 /**
  * A simple login utility.

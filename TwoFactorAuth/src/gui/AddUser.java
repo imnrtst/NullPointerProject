@@ -9,8 +9,9 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.wb.swt.SWTResourceManager;
 
-import classes.DB;
 import classes.UserDataObj;
+import database.DB;
+import hash.PwGen;
 
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.Button;
@@ -146,7 +147,7 @@ public class AddUser extends Shell {
 	{
 		UserDataObj newUser = new UserDataObj();
 		newUser.email = emailText.getText();
-		newUser.password = passwordText.getText();
+		newUser.password = PwGen.get_hash(passwordText.getText());
 		newUser.ccnum = ccNumText.getText();
 		return newUser;
 		

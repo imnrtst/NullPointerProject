@@ -6,8 +6,9 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
+import org.eclipse.swt.widgets.Decorations; 
 
-public class UIW {
+class UIW {
 
 	protected Shell shell;
 
@@ -62,6 +63,15 @@ public class UIW {
 		btnAddNewUser.setText("Add New User");
 		
 		Button btnLogin = new Button(shell, SWT.NONE);
+		btnLogin.addSelectionListener(new SelectionAdapter() 
+		{
+			@Override
+			public void widgetSelected(SelectionEvent arg0) 
+			{
+				Login login = new Login(shell,shell.getStyle());
+				login.open();
+			}
+		});
 		btnLogin.setBounds(10, 46, 148, 30);
 		btnLogin.setText("Login");
 		

@@ -1,37 +1,37 @@
-Nov 06, 2015 4:07:08 PM classes.DB initLogger
+Nov 06, 2015 6:06:02 PM database.DB initLogger
 INFO: <---Logging started!--->
-Nov 06, 2015 4:07:08 PM classes.DB openDBConnection
+Nov 06, 2015 6:06:03 PM database.DB openDBConnection
 INFO: Connecting to DB --> ProjectDB...
-Nov 06, 2015 4:07:08 PM classes.DB openDBConnection
+Nov 06, 2015 6:06:03 PM database.DB openDBConnection
 INFO: Connected to the ProjectDB DB successfully...
-Nov 06, 2015 4:07:08 PM classes.DB createTable
+Nov 06, 2015 6:06:03 PM database.DB createTable
 INFO: Error creating the table (SQL Code: 0): 
 Table "USERDATA" already exists; SQL statement:
 CREATE TABLE Userdata (id INT NOT NULL AUTO_INCREMENT,  email VARCHAR(50) NOT NULL UNIQUE,  password VARCHAR(100) NOT NULL, ccnum VARCHAR(16),  ccreg BOOLEAN,  ccpin VARCHAR(10), PRIMARY KEY ( id )) [42101-190]
-Nov 06, 2015 4:07:08 PM classes.DB closeDBConnection
+Nov 06, 2015 6:06:03 PM database.DB closeDBConnection
 INFO: Connection to the ProjectDB DB closed...
-Nov 06, 2015 4:07:08 PM classes.DB openDBConnection
+Nov 06, 2015 6:06:03 PM database.DB openDBConnection
 INFO: Connecting to DB --> ProjectDB...
-Nov 06, 2015 4:07:08 PM classes.DB openDBConnection
+Nov 06, 2015 6:06:03 PM database.DB openDBConnection
 INFO: Connected to the ProjectDB DB successfully...
-Nov 06, 2015 4:07:08 PM classes.DB getAllUsers
+Nov 06, 2015 6:06:03 PM database.DB getAllUsers
 INFO: DB: Entries found. Returning user data.
-Nov 06, 2015 4:07:08 PM classes.DB packageUserData
+Nov 06, 2015 6:06:03 PM database.DB packageUserData
 INFO: Getting user data from the query results
-Nov 06, 2015 4:07:08 PM classes.DB packageUserData
+Nov 06, 2015 6:06:03 PM database.DB packageUserData
 INFO: id:1|email:someone2@somewhere2.com|password:00000000000000004d7a497859324a68|ccnum:4321432143214321ccreg:true|ccpin:null
-Nov 06, 2015 4:07:08 PM classes.DB packageUserData
+Nov 06, 2015 6:06:03 PM database.DB packageUserData
 INFO: id:2|email:asdfsdf|password:asdfasdf|ccnum:asdfasdfccreg:true|ccpin:null
-Nov 06, 2015 4:07:08 PM classes.DB packageUserData
+Nov 06, 2015 6:06:03 PM database.DB packageUserData
 INFO: id:4|email:asdfsss|password:asddfdfdfdf|ccnum:1234123412341234ccreg:true|ccpin:null
-Nov 06, 2015 4:07:08 PM classes.DB packageUserData
+Nov 06, 2015 6:06:03 PM database.DB packageUserData
 INFO: id:5|email:goober1@gmail.com|password:goober1234|ccnum:0000111122223333ccreg:true|ccpin:null
-Nov 06, 2015 4:07:08 PM classes.DB packageUserData
+Nov 06, 2015 6:06:03 PM database.DB packageUserData
 INFO: id:9|email:goober2@gmail.com|password:goober2|ccnum:0000000000000000ccreg:true|ccpin:null
-Nov 06, 2015 4:07:08 PM classes.DB packageUserData
+Nov 06, 2015 6:06:03 PM database.DB packageUserData
 INFO: id:11|email:someone@somewhere.com|password:abc123|ccnum:0000000000000000ccreg:false|ccpin:null
-Nov 06, 2015 4:07:08 PM classes.DB packageUserData
+Nov 06, 2015 6:06:03 PM database.DB packageUserData
 INFO: Done getting user data from the query results
 6 records transcribed
-Nov 06, 2015 4:07:08 PM classes.DB closeDBConnection
+Nov 06, 2015 6:06:03 PM database.DB closeDBConnection
 INFO: Connection to the ProjectDB DB closed...

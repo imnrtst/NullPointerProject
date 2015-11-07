@@ -10,6 +10,8 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 
+import database.DB;
+
 public class Login_New{
 	public static void main(String[] args) throws Exception, AddressException, MessagingException{
 		DB db = new DB();

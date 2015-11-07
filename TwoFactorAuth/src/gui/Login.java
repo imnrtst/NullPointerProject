@@ -4,8 +4,18 @@ import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Label;
+
+import java.util.List;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
+
+import classes.UserDataObj;
+import database.DB;
+import hash.PwGen;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 
 public class Login extends Dialog {
 
@@ -14,6 +24,7 @@ public class Login extends Dialog {
 	private Text passwordText;
 	private Text emailText;
 
+	private DB db = new DB();
 	/**
 	 * Create the dialog.
 	 * @param parent
@@ -64,8 +75,37 @@ public class Login extends Dialog {
 		emailText.setBounds(86, 20, 329, 26);
 		
 		Label lblStatus = new Label(shlLogin, SWT.WRAP | SWT.CENTER);
-		lblStatus.setBounds(10, 109, 405, 60);
+		lblStatus.setBounds(10, 109, 300, 60);
+		
+		Button btnLogin = new Button(shlLogin, SWT.NONE);
+		btnLogin.addSelectionListener(new SelectionAdapter() 
+		{
+			@Override
+			public void widgetSelected(SelectionEvent arg0) 
+			{
+				
+			}
+		});
+		btnLogin.setBounds(325, 109, 90, 30);
+		btnLogin.setText("Login");
 
 	}
-
+	
+	private boolean verifyUser(String email, String password)
+	{
+		boolean result = false;
+		
+		List<UserDataObj> userDatum = db.getUserData(email);
+		
+		if(userDatum != null)
+		{
+			UserDataObj userData = userDatum.get(0);
+			if(userData.password.equals(PwGen.get_hash(password)))
+			{
+				result = true;
+			}
+		}
+		
+		return result;
+	}
 }

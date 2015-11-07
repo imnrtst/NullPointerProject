@@ -5,6 +5,8 @@ import java.util.Scanner;
 import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
+import database.DB;
+
 public class Card
 {
 	public String email;
