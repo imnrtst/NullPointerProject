@@ -7,8 +7,8 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 
-import classes.UserDataObj;
 import database.DB;
+import dataobj.UserDataObj;
 import email.ProjectEmail;
 import hash.PwGen;
 import pin.pinGenerator;
@@ -102,6 +102,7 @@ public class UpdateUserInfo extends Dialog {
 		Button btnSubmit = new Button(shlUpdateUserInfo, SWT.NONE);
 		btnSubmit.addSelectionListener(new SelectionAdapter() 
 		{
+			//TODO add a print for the status label so that the user know to wait for the confirmation
 			@Override
 			public void widgetSelected(SelectionEvent arg0) 
 			{
@@ -126,11 +127,13 @@ public class UpdateUserInfo extends Dialog {
 					changes = true;
 				}
 				
+				lblStatus.setText("WARNING: Leaving this page will revert any submitted changes.\n");
 				if(changes)
 				{
 					pin = "" + pinGenerator.randomGen();
 					ProjectEmail.sendUpdateInfoEmail(oldUD.email, pin);
-					lblStatus.setText("SUCCESS: Authorization pin sent to user");
+					lblStatus.setText("WARNING: Leaving this page will revert any submitted changes.\n" +
+										"SUCCESS: Authorization pin emailed to user");
 				}
 				else
 				{

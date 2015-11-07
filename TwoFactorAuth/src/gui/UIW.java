@@ -6,10 +6,10 @@ import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
-
-import classes.UserDataObj;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
+
+import dataobj.UserDataObj;
 
 class UIW {
 
@@ -93,11 +93,13 @@ class UIW {
 			{
 				if(checkLoginStatus())
 				{
-					//Do stuff
+					MakePurchase makePurchase = new MakePurchase(shell,shell.getStyle());
+					makePurchase.open();
 				}
 				else
 				{
 					//Display error
+					statusText.setText("Status: No user logged in.");
 				}
 			}
 		});
@@ -113,10 +115,13 @@ class UIW {
 				if(checkLoginStatus())
 				{
 					//Do stuff
+					AuthorizePurchase authPurchase = new AuthorizePurchase(shell,shell.getStyle());
+					authPurchase.open();
 				}
 				else
 				{
 					//Display error
+					statusText.setText("Status: No user logged in.");
 				}
 			}
 		});

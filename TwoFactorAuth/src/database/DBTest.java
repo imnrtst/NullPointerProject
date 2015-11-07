@@ -1,7 +1,7 @@
 package database;
 import java.util.ArrayList;
 
-import classes.UserDataObj;
+import dataobj.UserDataObj;
 import hash.PwGen;
 
 public class DBTest {

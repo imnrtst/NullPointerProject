@@ -6,6 +6,7 @@ import javax.mail.MessagingException;
 import javax.mail.internet.AddressException;
 
 import database.DB;
+import dataobj.UserDataObj;
 import email.ProjectEmail;
 import pin.pinGenerator;
 

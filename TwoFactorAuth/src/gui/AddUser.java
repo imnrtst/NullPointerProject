@@ -7,8 +7,8 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Label;
 
-import classes.UserDataObj;
 import database.DB;
+import dataobj.UserDataObj;
 import hash.PwGen;
 
 import org.eclipse.swt.widgets.Text;

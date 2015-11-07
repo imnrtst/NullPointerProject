@@ -111,13 +111,23 @@ public class ProjectEmail {
 	}
 	public static void sendPurchaseConfEmail(String email, String transID, String pin)
 	{
-		String message = "Hello! <br>Another user has requested permission to use your card for a purchase."
-				+ "<br>To authorize this transaction please use the \"Authorize Purchase\" tool. "
+		String message = "Hello! <br>Another user has requested permission to use your registered credit card for a purchase."
+				+ "<br>To authorize this transaction please use the \"Authorize Purchase\" tool and enter the following information: "
 				+ "<br>Transaction ID: " + transID
 				+ "<br>Pin: "+ pin
 				+ "<br><br> Regards, "
 				+ "<br>NullPointerSite";
-		String subject = "User Information Update";
+		String subject = "Credit Card Purchase Confirmation";
+		generateAndSendEmail(email,subject,message);
+	}
+	
+	public static void sendPurchaseAuthEmail(String email, String transID)
+	{
+		String message = "Hello! <br>Your purchase has been authorized and will be proccessed shortly."
+				+ "<br>Transaction ID: " + transID
+				+ "<br><br> Regards, "
+				+ "<br>NullPointerSite";
+		String subject = "Purchase Authorized";
 		generateAndSendEmail(email,subject,message);
 	}
 }	//public class project email
