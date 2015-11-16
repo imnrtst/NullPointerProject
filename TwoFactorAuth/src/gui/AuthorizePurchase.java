@@ -7,6 +7,8 @@ import org.eclipse.swt.widgets.Label;
 
 import java.util.List;
 
+import javax.mail.MessagingException;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 
@@ -64,18 +66,19 @@ public class AuthorizePurchase extends Dialog {
 	 */
 	private void createContents() {
 		shlAuthorizePurchase = new Shell(getParent(), getStyle());
-		shlAuthorizePurchase.setSize(369, 309);
+		shlAuthorizePurchase.setSize(505, 498);
 		shlAuthorizePurchase.setText("Authorize Purchase");
 		
-		Label statusLbl = new Label(shlAuthorizePurchase, SWT.NONE);
-		statusLbl.setBounds(10, 208, 234, 62);
+		Label statusLbl = new Label(shlAuthorizePurchase, SWT.BORDER | SWT.WRAP);
+		statusLbl.setText("Status...");
+		statusLbl.setBounds(10, 307, 463, 96);
 		
 		Label lblAutirizationCode = new Label(shlAuthorizePurchase, SWT.NONE);
-		lblAutirizationCode.setBounds(10, 171, 112, 20);
+		lblAutirizationCode.setBounds(10, 261, 112, 20);
 		lblAutirizationCode.setText("Authorization Code:");
 		
 		authCodeText = new Text(shlAuthorizePurchase, SWT.BORDER);
-		authCodeText.setBounds(128, 168, 212, 26);
+		authCodeText.setBounds(128, 258, 345, 26);
 		
 		Button btnAuthorize = new Button(shlAuthorizePurchase, SWT.NONE);
 		btnAuthorize.addSelectionListener(new SelectionAdapter() 
@@ -88,18 +91,26 @@ public class AuthorizePurchase extends Dialog {
 					if(ad.transID == Integer.parseInt(transIdText.getText()) &&
 							ad.authPin.equals(authCodeText.getText()))
 					{
-						//Authorize transaction
-						statusLbl.setText("SUCCESS: ID/Pin pair found. Authorizing purchase...");
+						try
+						{
+							//Authorize transaction
+							statusLbl.setText("SUCCESS: ID/Pin pair found. Authorizing purchase...");
+							
+							//Send an email to purchaser
+							ProjectEmail.sendPurchaseAuthEmail(ad.purchEmail, "" + ad.transID);
+							
+							//Remove the auth from DB
+							db.delAuthData(ad.transID);
+							
+							statusLbl.setText("SUCCESS: Authorization procecessed");
+							updateDbEntries();
+							break;
+						}
+						catch(MessagingException me)
+						{
+							statusLbl.setText("ERROR: Unable to send email. Check internet connection and retry authorization.");
+						}
 						
-						//Send an email to purchaser
-						ProjectEmail.sendPurchaseAuthEmail(ad.purchEmail, "" + ad.transID);
-						
-						//Remove the auth from DB
-						db.delAuthData(ad.transID);
-						
-						statusLbl.setText("SUCCESS: Authorization procecessed");
-						updateDbEntries();
-						break;
 					}
 					else
 					{
@@ -108,22 +119,22 @@ public class AuthorizePurchase extends Dialog {
 				}
 			}
 		});
-		btnAuthorize.setBounds(250, 216, 90, 30);
+		btnAuthorize.setBounds(383, 409, 90, 30);
 		btnAuthorize.setText("Authorize");
 		
 		Label lblPendingAuthorizations = new Label(shlAuthorizePurchase, SWT.NONE);
-		lblPendingAuthorizations.setBounds(10, 10, 162, 15);
+		lblPendingAuthorizations.setBounds(10, 10, 162, 30);
 		lblPendingAuthorizations.setText("Pending Authorizations");
 		
 		pendingAuthText = new Text(shlAuthorizePurchase, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL | SWT.CANCEL | SWT.MULTI);
-		pendingAuthText.setBounds(10, 31, 330, 79);
+		pendingAuthText.setBounds(10, 46, 463, 148);
 		
 		Label lblTransactionId = new Label(shlAuthorizePurchase, SWT.NONE);
 		lblTransactionId.setText("Transaction ID:");
-		lblTransactionId.setBounds(10, 132, 112, 20);
+		lblTransactionId.setBounds(10, 222, 112, 20);
 		
 		transIdText = new Text(shlAuthorizePurchase, SWT.BORDER);
-		transIdText.setBounds(128, 126, 212, 26);
+		transIdText.setBounds(128, 216, 345, 26);
 		
 		
 

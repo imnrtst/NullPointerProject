@@ -7,6 +7,8 @@ import org.eclipse.swt.widgets.Label;
 
 import java.util.List;
 
+import javax.mail.MessagingException;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 
@@ -59,7 +61,7 @@ public class MakePurchase extends Dialog {
 	 */
 	private void createContents() {
 		shlMakePurchase = new Shell(getParent(), getStyle());
-		shlMakePurchase.setSize(465, 151);
+		shlMakePurchase.setSize(465, 262);
 		shlMakePurchase.setText("Make Purchase");
 		
 		Label ccNumLabel = new Label(shlMakePurchase, SWT.NONE);
@@ -70,9 +72,9 @@ public class MakePurchase extends Dialog {
 		ccnumText.setToolTipText("Leave blank to use CC on file");
 		ccnumText.setBounds(69, 23, 365, 26);
 		
-		Label purchaseStatus = new Label(shlMakePurchase, SWT.WRAP);
+		Label purchaseStatus = new Label(shlMakePurchase, SWT.BORDER | SWT.WRAP);
 		purchaseStatus.setText("*Note: Leave CC Num blank if you wish to use the CC on file");
-		purchaseStatus.setBounds(20, 66, 318, 30);
+		purchaseStatus.setBounds(20, 66, 414, 103);
 		
 		Button btnPurchase = new Button(shlMakePurchase, SWT.NONE);
 		btnPurchase.addSelectionListener(new SelectionAdapter() 
@@ -128,14 +130,23 @@ public class MakePurchase extends Dialog {
 						//Get the transaction id
 						List<AuthDataObj> ados = db.getAuthData(ado);
 						String transID = "" + ados.get(0).transID;
-						//Send email to registered user's email
-						ProjectEmail.sendPurchaseConfEmail(ado.authEmail, transID, ados.get(0).authPin);
-						purchaseStatus.setText("WARNING: Order on hold. Email sent to registered card holder for validation.)");
+						try
+						{
+							//Send email to registered user's email
+							ProjectEmail.sendPurchaseConfEmail(ado.authEmail, transID, ados.get(0).authPin);
+							purchaseStatus.setText("WARNING: Order on hold. Email sent to registered card holder for validation.)");
+						}
+						catch(MessagingException me)
+						{
+							db.delAuthData(ados.get(0).transID);
+							purchaseStatus.setText("ERROR: Unable to send email. Purchase canceled.");
+						}
+						
 					}
 				}
 			}
 		});
-		btnPurchase.setBounds(344, 66, 90, 30);
+		btnPurchase.setBounds(344, 175, 90, 30);
 		btnPurchase.setText("Purchase");
 		
 		

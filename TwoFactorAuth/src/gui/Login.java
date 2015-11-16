@@ -56,7 +56,7 @@ public class Login extends Dialog {
 	 */
 	private void createContents() {
 		shlLogin = new Shell(getParent(), getStyle());
-		shlLogin.setSize(450, 214);
+		shlLogin.setSize(450, 282);
 		shlLogin.setText("Login");
 		
 		Label lblEmail = new Label(shlLogin, SWT.NONE);
@@ -68,15 +68,16 @@ public class Login extends Dialog {
 		lblPassword.setText("Password:");
 		
 		passwordText = new Text(shlLogin, SWT.BORDER);
-		passwordText.setText("brokenPass");
+		passwordText.setText("brokenpassword");
 		passwordText.setBounds(86, 67, 329, 26);
 		
 		emailText = new Text(shlLogin, SWT.BORDER);
-		emailText.setText("testUser@asu.edu");
+		emailText.setText("cse465user1@gmail.com");
 		emailText.setBounds(86, 20, 329, 26);
 		
-		Label lblStatus = new Label(shlLogin, SWT.WRAP | SWT.CENTER);
-		lblStatus.setBounds(10, 109, 300, 60);
+		Label lblStatus = new Label(shlLogin, SWT.BORDER | SWT.WRAP | SWT.CENTER);
+		lblStatus.setText("Status...");
+		lblStatus.setBounds(10, 113, 405, 77);
 		
 		Button btnLogin = new Button(shlLogin, SWT.NONE);
 		btnLogin.addSelectionListener(new SelectionAdapter() 
@@ -110,7 +111,7 @@ public class Login extends Dialog {
 				}
 			}
 		});
-		btnLogin.setBounds(325, 109, 90, 30);
+		btnLogin.setBounds(325, 196, 90, 30);
 		btnLogin.setText("Login");
 
 	}

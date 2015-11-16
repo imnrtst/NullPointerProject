@@ -79,7 +79,8 @@ public class AddUser extends Shell {
 		dbEntriesLabel.setBounds(10, 227, 70, 20);
 		dbEntriesLabel.setText("DB Entries:");
 		
-		Label statusLabel = new Label(this, SWT.WRAP | SWT.CENTER);
+		Label statusLabel = new Label(this, SWT.BORDER | SWT.WRAP | SWT.CENTER);
+		statusLabel.setText("Status...");
 		statusLabel.setBounds(470, 43, 132, 119);
 		
 		Button btnAdd = new Button(this, SWT.NONE);

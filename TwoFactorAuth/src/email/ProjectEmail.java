@@ -12,7 +12,7 @@ import javax.mail.internet.MimeMessage;
  
 public class ProjectEmail {
  
-	private static final String ADMIN_EMAIL = "cse465user1@gmail.com";
+	private static final String ADMIN_EMAIL = "cse465nullpointersite@gmail.com";
 	private static final String ADMIN_PASS = "nullpointer1";
 	private static final String SMTP_URI = "smtp.gmail.com";
 	private static final String SMTP_PORT = "587";
@@ -74,7 +74,7 @@ public class ProjectEmail {
 		transport.close();
 	}	//generate and send mail
 	
-	private static void generateAndSendEmail(String recipientEmail, String subject, String message)
+	private static void generateAndSendEmail(String recipientEmail, String subject, String message) throws MessagingException
 	{
 		mailServerProperties = System.getProperties();
 		mailServerProperties.put("mail.smtp.port", SMTP_PORT);
@@ -84,24 +84,17 @@ public class ProjectEmail {
 		getMailSession = Session.getDefaultInstance(mailServerProperties, null);
 		generateMailMessage = new MimeMessage(getMailSession);
 		
-		try 
-		{
-			generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(recipientEmail));
-			generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress(ADMIN_EMAIL));
-			generateMailMessage.setSubject(subject);
-			generateMailMessage.setContent(message, "text/html");
-			Transport transport = getMailSession.getTransport("smtp");
-			transport.connect(SMTP_URI, "cse465nullpointersite@gmail.com", ADMIN_PASS);
-			transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
-			transport.close();
-		}
-		catch (MessagingException e) 
-		{
-			e.printStackTrace();
-		}		
+		generateMailMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(recipientEmail));
+		generateMailMessage.addRecipient(Message.RecipientType.CC, new InternetAddress(ADMIN_EMAIL));
+		generateMailMessage.setSubject(subject);
+		generateMailMessage.setContent(message, "text/html");
+		Transport transport = getMailSession.getTransport("smtp");
+		transport.connect(SMTP_URI, "cse465nullpointersite@gmail.com", ADMIN_PASS);
+		transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
+		transport.close();
 	}
 	
-	public static void sendUpdateInfoEmail(String email, String pin)
+	public static void sendUpdateInfoEmail(String email, String pin)throws MessagingException
 	{
 		String message = "Hello! <br> An update to user information was requested for your account at NullPointer. "
 				+ "<br>To authorize this change enter the following pin into the confirmation box: "
@@ -109,7 +102,7 @@ public class ProjectEmail {
 		String subject = "User Information Update";
 		generateAndSendEmail(email,subject,message);
 	}
-	public static void sendPurchaseConfEmail(String email, String transID, String pin)
+	public static void sendPurchaseConfEmail(String email, String transID, String pin)throws MessagingException
 	{
 		String message = "Hello! <br>Another user has requested permission to use your registered credit card for a purchase."
 				+ "<br>To authorize this transaction please use the \"Authorize Purchase\" tool and enter the following information: "
@@ -121,7 +114,7 @@ public class ProjectEmail {
 		generateAndSendEmail(email,subject,message);
 	}
 	
-	public static void sendPurchaseAuthEmail(String email, String transID)
+	public static void sendPurchaseAuthEmail(String email, String transID)throws MessagingException
 	{
 		String message = "Hello! <br>Your purchase has been authorized and will be proccessed shortly."
 				+ "<br>Transaction ID: " + transID

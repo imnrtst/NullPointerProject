@@ -4,6 +4,9 @@ import org.eclipse.swt.widgets.Dialog;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Label;
+
+import javax.mail.MessagingException;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Text;
 
@@ -86,11 +89,12 @@ public class UpdateUserInfo extends Dialog {
 		ccNumText = new Text(shlUpdateUserInfo, SWT.BORDER);
 		ccNumText.setBounds(86, 71, 348, 26);
 		
-		Label lblStatus = new Label(shlUpdateUserInfo, SWT.WRAP | SWT.CENTER);
-		lblStatus.setBounds(10, 111, 328, 44);
+		Label lblStatus = new Label(shlUpdateUserInfo, SWT.BORDER | SWT.WRAP | SWT.CENTER);
+		lblStatus.setText("Status...");
+		lblStatus.setBounds(10, 111, 328, 61);
 		
 		Label lblConfirmation = new Label(shlUpdateUserInfo, SWT.NONE);
-		lblConfirmation.setBounds(159, 178, 83, 15);
+		lblConfirmation.setBounds(152, 178, 90, 18);
 		lblConfirmation.setText("Confirmation:");
 		
 		confirmationText = new Text(shlUpdateUserInfo, SWT.BORDER);
@@ -131,9 +135,17 @@ public class UpdateUserInfo extends Dialog {
 				if(changes)
 				{
 					pin = "" + pinGenerator.randomGen();
-					ProjectEmail.sendUpdateInfoEmail(oldUD.email, pin);
-					lblStatus.setText("WARNING: Leaving this page will revert any submitted changes.\n" +
-										"SUCCESS: Authorization pin emailed to user");
+					try
+					{
+						ProjectEmail.sendUpdateInfoEmail(oldUD.email, pin);
+						lblStatus.setText("WARNING: Leaving this page will revert any submitted changes.\n" +
+											"SUCCESS: Authorization pin emailed to user");
+					}
+					catch(MessagingException me)
+					{
+						changes = false;
+						lblStatus.setText("ERROR: Unable to send email. Changes reverted.");
+					}
 				}
 				else
 				{
